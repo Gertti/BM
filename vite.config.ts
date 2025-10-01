@@ -8,6 +8,7 @@ export default defineConfig({
     host: true,
     port: process.env.PORT ? parseInt(process.env.PORT) : 4173,
     strictPort: false,
+    allowedHosts: ['bm-sv7s.onrender.com', 'localhost', '.onrender.com'],
   },
   server: {
     host: true,
