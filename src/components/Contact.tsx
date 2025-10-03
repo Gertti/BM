@@ -136,7 +136,7 @@ const Contact = () => {
             w="full"
             mx="auto"
             bg="blackAlpha.50"
-            p={8}
+            p={{ base: 6, md: 8 }}
             borderRadius="xl"
             border="2px solid"
             borderColor="rgba(0, 191, 255, 0.1)"
@@ -146,8 +146,8 @@ const Contact = () => {
             }}
             transition="all 0.3s ease"
           >
-              <VStack spacing={6} as="form">
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} w="full">
+              <VStack spacing={{ base: 4, md: 6 }} as="form">
+                <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={4} w="full">
                   <FormControl>
                     <FormLabel color="black" fontWeight="semibold">
                       First Name
@@ -243,14 +243,18 @@ const Contact = () => {
                 </FormControl>
 
                 <Button
-                  bg="#00BFFF"
+                  bg="#D77A45"
                   color="white"
                   size="lg"
                   w="full"
                   _hover={{
-                    bg: '#0099CC',
+                    bg: '#C96A35',
                     transform: 'translateY(-2px)',
-                    boxShadow: '0 8px 25px rgba(0, 191, 255, 0.3)',
+                    boxShadow: '0 8px 25px rgba(215, 122, 69, 0.4)',
+                  }}
+                  _active={{
+                    bg: '#B85A25',
+                    transform: 'scale(0.98)',
                   }}
                   transition="all 0.3s ease"
                   fontWeight="bold"

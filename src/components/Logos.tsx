@@ -5,7 +5,9 @@ import {
   SimpleGrid,
   VStack,
   Image,
+  Flex,
 } from '@chakra-ui/react';
+import { useEffect, useRef } from 'react';
 
 // Import logo images
 import logo1 from '../assets/1.png';
@@ -24,6 +26,35 @@ const Logos = () => {
     { src: logo5, alt: 'College Ave' },
     { src: logo6, alt: 'Biz2Credit' },
   ];
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let scrollInterval: number;
+    const startAutoScroll = () => {
+      scrollInterval = window.setInterval(() => {
+        if (scrollContainer) {
+          const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+          const currentScroll = scrollContainer.scrollLeft;
+          
+          if (currentScroll >= maxScroll) {
+            scrollContainer.scrollLeft = 0;
+          } else {
+            scrollContainer.scrollLeft += 1;
+          }
+        }
+      }, 20);
+    };
+
+    startAutoScroll();
+
+    return () => {
+      if (scrollInterval) window.clearInterval(scrollInterval);
+    };
+  }, []);
 
   return (
     <Box 
@@ -122,9 +153,53 @@ const Logos = () => {
             Trusted by teams using:
           </Text>
           
+          {/* Mobile Slider */}
+          <Box
+            display={{ base: "block", md: "none" }}
+            w="full"
+            overflow="hidden"
+            position="relative"
+          >
+            <Flex
+              ref={scrollRef}
+              gap={6}
+              overflowX="auto"
+              css={{
+                scrollbarWidth: 'none',
+                '&::-webkit-scrollbar': {
+                  display: 'none',
+                },
+              }}
+              py={4}
+            >
+              {[...logos, ...logos].map((logo, index) => (
+                <Box
+                  key={index}
+                  minW="120px"
+                  h="60px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    maxH="50px"
+                    maxW="100%"
+                    objectFit="contain"
+                    filter="grayscale(100%)"
+                    opacity={0.8}
+                  />
+                </Box>
+              ))}
+            </Flex>
+          </Box>
+
+          {/* Desktop Grid */}
           <SimpleGrid
+            display={{ base: "none", md: "grid" }}
             columns={{ base: 2, sm: 3, md: 6 }}
-            spacing={8}
+            spacing={{ base: 6, md: 8 }}
             w="full"
             alignItems="center"
             maxW="1000px"
@@ -136,12 +211,12 @@ const Logos = () => {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
-                h="110px"
+                h={{ base: "80px", md: "110px" }}
               >
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  maxH="100px"
+                  maxH={{ base: "70px", md: "100px" }}
                   maxW="100%"
                   objectFit="contain"
                   filter="grayscale(100%)"

@@ -122,15 +122,15 @@ const WhatWeDo = () => {
           {/* Services Grid */}
           <SimpleGrid
             columns={{ base: 1, md: 3 }}
-            spacing={[8, 12]}
+            spacing={{ base: 6, md: 8, lg: 12 }}
             w="full"
           >
             {services.map((service, index) => (
               <VStack
                 key={index}
                 align="center"
-                spacing={6}
-                p={8}
+                spacing={{ base: 4, md: 6 }}
+                p={{ base: 6, md: 8 }}
                 bg="whiteAlpha.50"
                 borderRadius="xl"
                 border="2px solid"
