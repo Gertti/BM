@@ -2,6 +2,7 @@ import {
   Box,
   Container,
   VStack,
+  HStack,
   Heading,
   Text,
   Button,
@@ -480,45 +481,117 @@ const Hero = () => {
           </Text>
 
           {/* CTAs */}
-          <VStack spacing={{ base: 3, sm: 4 }} w="full" maxW={{ base: "full", sm: "500px" }} px={{ base: 0, sm: 4 }} mt={{ base: 6, md: 0 }}>
-            <Button
-              bg="#D77A45"
-              color="white"
-              _hover={{ 
-                bg: '#C96A35',
-                transform: 'translateY(-2px)',
-                boxShadow: '0 8px 20px rgba(215, 122, 69, 0.4)'
-              }}
-              _active={{ 
-                bg: '#B85A25', 
-                transform: 'scale(0.97)',
-                boxShadow: '0 4px 10px rgba(215, 122, 69, 0.3)'
-              }}
-              _focus={{
-                boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.3)'
-              }}
-              size="lg"
-              fontSize={{ base: 'md', md: 'lg' }}
-              h={{ base: '52px', md: '56px' }}
-              onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({
-                  behavior: 'smooth'
-                });
-              }}
-              w="full"
-              borderRadius="lg"
-              fontWeight="bold"
-              transition="all 0.25s ease"
-              boxShadow="0 4px 14px rgba(215, 122, 69, 0.3)"
-            >
-              Get Started
-            </Button>
-            <Link
-              href="#whatwedo"
-              _hover={{ textDecoration: 'none' }}
-              w="full"
-            >
+          <Box w="full" maxW={{ base: "full", sm: "500px", md: "600px" }} px={{ base: 0, sm: 4 }} mt={{ base: 6, md: 0 }}>
+            {/* Mobile: Vertical Stack */}
+            <VStack spacing={3} w="full" display={{ base: "flex", md: "none" }}>
               <Button
+                bg="#D77A45"
+                color="white"
+                _hover={{ 
+                  bg: '#C96A35',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 8px 20px rgba(215, 122, 69, 0.4)'
+                }}
+                _active={{ 
+                  bg: '#B85A25', 
+                  transform: 'scale(0.97)',
+                  boxShadow: '0 4px 10px rgba(215, 122, 69, 0.3)'
+                }}
+                _focus={{
+                  boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.3)'
+                }}
+                size="lg"
+                fontSize="md"
+                h="52px"
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }}
+                w="full"
+                borderRadius="lg"
+                fontWeight="bold"
+                transition="all 0.25s ease"
+                boxShadow="0 4px 14px rgba(215, 122, 69, 0.3)"
+              >
+                Get Started
+              </Button>
+              <Link
+                href="#whatwedo"
+                _hover={{ textDecoration: 'none' }}
+                w="full"
+              >
+                <Button
+                  bg="transparent"
+                  color="white"
+                  border="2px solid"
+                  borderColor="whiteAlpha.400"
+                  _hover={{ 
+                    bg: 'whiteAlpha.100', 
+                    borderColor: 'whiteAlpha.600',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)'
+                  }}
+                  _active={{ 
+                    bg: 'whiteAlpha.200', 
+                    transform: 'scale(0.97)',
+                    boxShadow: '0 4px 10px rgba(255, 255, 255, 0.1)'
+                  }}
+                  _focus={{
+                    boxShadow: '0 0 0 3px rgba(255, 255, 255, 0.2)'
+                  }}
+                  size="lg"
+                  fontSize="md"
+                  h="52px"
+                  w="full"
+                  borderRadius="lg"
+                  fontWeight="bold"
+                  transition="all 0.25s ease"
+                  boxShadow="0 4px 14px rgba(255, 255, 255, 0.1)"
+                >
+                  See what we do
+                </Button>
+              </Link>
+            </VStack>
+
+            {/* Desktop: Horizontal Stack */}
+            <HStack spacing={4} w="full" display={{ base: "none", md: "flex" }} align="stretch">
+              <Button
+                bg="#D77A45"
+                color="white"
+                _hover={{ 
+                  bg: '#C96A35',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 8px 20px rgba(215, 122, 69, 0.4)'
+                }}
+                _active={{ 
+                  bg: '#B85A25', 
+                  transform: 'scale(0.97)',
+                  boxShadow: '0 4px 10px rgba(215, 122, 69, 0.3)'
+                }}
+                _focus={{
+                  boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.3)'
+                }}
+                size="lg"
+                fontSize="lg"
+                h="56px"
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }}
+                flex="1"
+                minW="0"
+                borderRadius="lg"
+                fontWeight="bold"
+                transition="all 0.25s ease"
+                boxShadow="0 4px 14px rgba(215, 122, 69, 0.3)"
+              >
+                Get Started
+              </Button>
+              <Button
+                as={Link}
+                href="#whatwedo"
                 bg="transparent"
                 color="white"
                 border="2px solid"
@@ -527,7 +600,8 @@ const Hero = () => {
                   bg: 'whiteAlpha.100', 
                   borderColor: 'whiteAlpha.600',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)'
+                  boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)',
+                  textDecoration: 'none'
                 }}
                 _active={{ 
                   bg: 'whiteAlpha.200', 
@@ -538,9 +612,10 @@ const Hero = () => {
                   boxShadow: '0 0 0 3px rgba(255, 255, 255, 0.2)'
                 }}
                 size="lg"
-                fontSize={{ base: 'md', md: 'lg' }}
-                h={{ base: '52px', md: '56px' }}
-                w="full"
+                fontSize="lg"
+                h="56px"
+                flex="1"
+                minW="0"
                 borderRadius="lg"
                 fontWeight="bold"
                 transition="all 0.25s ease"
@@ -548,8 +623,8 @@ const Hero = () => {
               >
                 See what we do
               </Button>
-            </Link>
-          </VStack>
+            </HStack>
+          </Box>
         </VStack>
       </Container>
     </Box>

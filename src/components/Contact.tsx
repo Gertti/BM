@@ -250,15 +250,20 @@ const Contact = () => {
                   _hover={{
                     bg: '#C96A35',
                     transform: 'translateY(-2px)',
-                    boxShadow: '0 8px 25px rgba(215, 122, 69, 0.4)',
+                    boxShadow: '0 8px 20px rgba(215, 122, 69, 0.4)',
                   }}
                   _active={{
                     bg: '#B85A25',
-                    transform: 'scale(0.98)',
+                    transform: 'scale(0.97)',
+                    boxShadow: '0 4px 10px rgba(215, 122, 69, 0.3)'
                   }}
-                  transition="all 0.3s ease"
+                  _focus={{
+                    boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.3)'
+                  }}
+                  transition="all 0.25s ease"
                   fontWeight="bold"
                   fontSize="lg"
+                  boxShadow="0 4px 14px rgba(215, 122, 69, 0.3)"
                 >
                   Send Message
                 </Button>
