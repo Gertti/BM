@@ -27,7 +27,8 @@ const Logos = () => {
 
   return (
     <Box 
-      py={[12, 16]} 
+      pt={[1.5, 2]}
+      pb={[0.5, 0.5]} 
       bg="white"
       position="relative"
       overflow="hidden"
@@ -109,7 +110,7 @@ const Logos = () => {
       </Box>
       
       <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1">
-        <VStack spacing={8}>
+        <VStack spacing={3}>
           <Text
             fontSize="sm"
             color="blackAlpha.700"

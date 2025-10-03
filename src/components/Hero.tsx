@@ -64,18 +64,42 @@ const Hero = () => {
           background="radial-gradient(circle at center, rgba(0, 191, 255, 0.1) 0%, transparent 70%)"
           animation="pulse 4s ease-in-out infinite"
         />
+
+        {/* Mouse-responsive medium-sized balls around the hero section */}
+        {[
+          { x: 15, y: 20, size: 60, speed: 0.8 },
+          { x: 85, y: 25, size: 50, speed: 0.7 },
+          { x: 20, y: 70, size: 55, speed: 0.9 },
+          { x: 80, y: 65, size: 65, speed: 0.75 },
+          { x: 10, y: 45, size: 45, speed: 0.85 },
+          { x: 90, y: 50, size: 58, speed: 0.72 },
+          { x: 30, y: 15, size: 52, speed: 0.78 },
+          { x: 70, y: 85, size: 48, speed: 0.82 },
+        ].map((ball, i) => {
+          const offsetX = (mousePosition.x - ball.x) * ball.speed;
+          const offsetY = (mousePosition.y - ball.y) * ball.speed;
+          
+          return (
+            <Box
+              key={`mouse-ball-${i}`}
+              position="absolute"
+              width={`${ball.size}px`}
+              height={`${ball.size}px`}
+              borderRadius="50%"
+              background={`radial-gradient(circle, rgba(0, 191, 255, ${0.2 + i * 0.02}) 0%, rgba(0, 191, 255, ${0.1 + i * 0.01}) 40%, transparent 70%)`}
+              boxShadow={`0 0 ${20 + i * 2}px rgba(0, 191, 255, 0.3)`}
+              left={`${ball.x}%`}
+              top={`${ball.y}%`}
+              style={{
+                transform: `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px)`,
+                transition: 'transform 0.2s ease-out',
+              }}
+              pointerEvents="none"
+              filter="blur(8px)"
+            />
+          );
+        })}
         
-        {/* Mouse-responsive gradient */}
-        <Box
-          position="absolute"
-          width="400px"
-          height="400px"
-          borderRadius="50%"
-          background="radial-gradient(circle, rgba(0, 191, 255, 0.15) 0%, rgba(0, 191, 255, 0.05) 40%, transparent 70%)"
-          transform={`translate(${mousePosition.x - 50}%, ${mousePosition.y - 50}%)`}
-          transition="transform 0.3s ease-out"
-          pointerEvents="none"
-        />
 
         {/* Geometric grid pattern */}
         <Box
@@ -93,23 +117,235 @@ const Hero = () => {
           animation="gridMove 20s linear infinite"
         />
 
-        {/* Floating particles */}
-        {[...Array(6)].map((_, i) => (
+        {/* Floating particles - enhanced */}
+        {[...Array(12)].map((_, i) => (
           <Box
             key={i}
             position="absolute"
-            width="4px"
-            height="4px"
+            width={i < 6 ? "4px" : "3px"}
+            height={i < 6 ? "4px" : "3px"}
             borderRadius="50%"
-            background="rgba(0, 191, 255, 0.6)"
-            top={`${20 + (i * 15)}%`}
-            left={`${10 + (i * 12)}%`}
-            animation={`float${i % 3} ${3 + (i % 2)}s ease-in-out infinite`}
+            background={i < 6 ? "rgba(0, 191, 255, 0.8)" : "rgba(0, 191, 255, 0.6)"}
+            top={`${10 + (i * 8)}%`}
+            left={`${5 + (i * 8)}%`}
+            animation={`float${i % 3} ${2 + (i % 3)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.3}s` }}
+          />
+        ))}
+
+        {/* Independent moving lights */}
+        <Box
+          position="absolute"
+          width="150px"
+          height="150px"
+          borderRadius="50%"
+          background="radial-gradient(circle, rgba(0, 191, 255, 0.2) 0%, transparent 70%)"
+          top="15%"
+          right="20%"
+          animation="slowFloat1 8s ease-in-out infinite"
+        />
+        <Box
+          position="absolute"
+          width="120px"
+          height="120px"
+          borderRadius="50%"
+          background="radial-gradient(circle, rgba(0, 191, 255, 0.18) 0%, transparent 70%)"
+          bottom="25%"
+          left="15%"
+          animation="slowFloat2 10s ease-in-out infinite"
+        />
+        <Box
+          position="absolute"
+          width="80px"
+          height="80px"
+          borderRadius="50%"
+          background="radial-gradient(circle, rgba(0, 191, 255, 0.25) 0%, transparent 60%)"
+          top="60%"
+          right="10%"
+          animation="slowFloat3 6s ease-in-out infinite"
+        />
+
+        {/* Brighter blue points */}
+        {[...Array(15)].map((_, i) => (
+          <Box
+            key={`bright-${i}`}
+            position="absolute"
+            width={`${2 + (i % 3)}px`}
+            height={`${2 + (i % 3)}px`}
+            borderRadius="50%"
+            background="rgba(0, 191, 255, 0.9)"
+            boxShadow="0 0 8px rgba(0, 191, 255, 0.6)"
+            top={`${5 + (i * 6)}%`}
+            left={`${3 + (i * 6.5)}%`}
+            animation={`brightFloat${i % 4} ${3 + (i % 3)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.2}s` }}
+          />
+        ))}
+
+        {/* Additional scattered bright points */}
+        <Box
+          position="absolute"
+          width="3px"
+          height="3px"
+          borderRadius="50%"
+          background="rgba(0, 191, 255, 1)"
+          boxShadow="0 0 10px rgba(0, 191, 255, 0.8)"
+          top="25%"
+          right="30%"
+          animation="twinkle 2s ease-in-out infinite"
+        />
+        <Box
+          position="absolute"
+          width="4px"
+          height="4px"
+          borderRadius="50%"
+          background="rgba(0, 191, 255, 1)"
+          boxShadow="0 0 12px rgba(0, 191, 255, 0.8)"
+          top="70%"
+          left="25%"
+          animation="twinkle 3s ease-in-out infinite"
+          sx={{ animationDelay: "1s" }}
+        />
+        <Box
+          position="absolute"
+          width="2px"
+          height="2px"
+          borderRadius="50%"
+          background="rgba(0, 191, 255, 1)"
+          boxShadow="0 0 8px rgba(0, 191, 255, 0.9)"
+          top="40%"
+          right="15%"
+          animation="twinkle 2.5s ease-in-out infinite"
+          sx={{ animationDelay: "0.5s" }}
+        />
+        <Box
+          position="absolute"
+          width="3px"
+          height="3px"
+          borderRadius="50%"
+          background="rgba(0, 191, 255, 1)"
+          boxShadow="0 0 10px rgba(0, 191, 255, 0.8)"
+          top="80%"
+          right="40%"
+          animation="twinkle 2.8s ease-in-out infinite"
+          sx={{ animationDelay: "1.5s" }}
+        />
+
+        {/* Right side moving pointers/particles */}
+        {[...Array(8)].map((_, i) => (
+          <Box
+            key={`right-pointer-${i}`}
+            position="absolute"
+            width={`${3 + (i % 2)}px`}
+            height={`${3 + (i % 2)}px`}
+            borderRadius="50%"
+            background={`rgba(0, 191, 255, ${0.7 + (i % 3) * 0.1})`}
+            boxShadow={`0 0 ${6 + (i % 3) * 2}px rgba(0, 191, 255, 0.5)`}
+            top={`${15 + (i * 10)}%`}
+            right={`${5 + (i % 3) * 8}%`}
+            animation={`rightFloat${i % 3} ${4 + (i % 2)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.4}s` }}
+          />
+        ))}
+
+        {/* Additional right side bright points */}
+        <Box
+          position="absolute"
+          width="4px"
+          height="4px"
+          borderRadius="50%"
+          background="rgba(0, 191, 255, 1)"
+          boxShadow="0 0 12px rgba(0, 191, 255, 0.8)"
+          top="20%"
+          right="8%"
+          animation="rightPulse 3s ease-in-out infinite"
+        />
+        <Box
+          position="absolute"
+          width="3px"
+          height="3px"
+          borderRadius="50%"
+          background="rgba(0, 191, 255, 0.9)"
+          boxShadow="0 0 10px rgba(0, 191, 255, 0.7)"
+          top="45%"
+          right="12%"
+          animation="rightPulse 4s ease-in-out infinite"
+          sx={{ animationDelay: "1s" }}
+        />
+        <Box
+          position="absolute"
+          width="5px"
+          height="5px"
+          borderRadius="50%"
+          background="rgba(0, 191, 255, 1)"
+          boxShadow="0 0 15px rgba(0, 191, 255, 0.9)"
+          top="65%"
+          right="6%"
+          animation="rightPulse 2.5s ease-in-out infinite"
+          sx={{ animationDelay: "2s" }}
+        />
+        <Box
+          position="absolute"
+          width="2px"
+          height="2px"
+          borderRadius="50%"
+          background="rgba(0, 191, 255, 0.8)"
+          boxShadow="0 0 8px rgba(0, 191, 255, 0.6)"
+          top="85%"
+          right="15%"
+          animation="rightPulse 3.5s ease-in-out infinite"
+          sx={{ animationDelay: "0.5s" }}
+        />
+
+        {/* Additional small moving balls on right side */}
+        {[...Array(12)].map((_, i) => (
+          <Box
+            key={`right-ball-${i}`}
+            position="absolute"
+            width={`${2 + (i % 3)}px`}
+            height={`${2 + (i % 3)}px`}
+            borderRadius="50%"
+            background={`rgba(0, 191, 255, ${0.6 + (i % 4) * 0.1})`}
+            boxShadow={`0 0 ${4 + (i % 3) * 2}px rgba(0, 191, 255, 0.4)`}
+            top={`${8 + (i * 7.5)}%`}
+            right={`${3 + (i % 4) * 6}%`}
+            animation={`rightBallFloat${i % 4} ${3.5 + (i % 3)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.3}s` }}
+          />
+        ))}
+
+        {/* Extra scattered moving balls */}
+        {[...Array(6)].map((_, i) => (
+          <Box
+            key={`right-scatter-${i}`}
+            position="absolute"
+            width="2px"
+            height="2px"
+            borderRadius="50%"
+            background={`rgba(0, 191, 255, ${0.7 + (i % 2) * 0.2})`}
+            boxShadow="0 0 6px rgba(0, 191, 255, 0.5)"
+            top={`${12 + (i * 14)}%`}
+            right={`${2 + (i % 2) * 20}%`}
+            animation={`rightScatter${i % 3} ${4 + (i % 2)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.5}s` }}
           />
         ))}
 
       </Box>
 
+      {/* Static blue light backdrop behind content */}
+      <Box
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+        width="80%"
+        height="70%"
+        background="radial-gradient(ellipse at center, rgba(0, 191, 255, 0.15) 0%, rgba(0, 191, 255, 0.08) 30%, rgba(0, 191, 255, 0.04) 50%, transparent 70%)"
+        borderRadius="50%"
+        zIndex="0"
+        filter="blur(40px)"
+      />
 
       <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1">
         <VStack spacing={[6, 8]} textAlign="center" maxW="800px" mx="auto">
@@ -118,7 +354,7 @@ const Hero = () => {
             <Image
               src={logoImage}
               alt="Hero Complex"
-              h={{ base: "250px", sm: "300px", md: "350px" }}
+              h={{ base: "300px", sm: "380px", md: "450px" }}
               w="auto"
               fallback={
                 <Box
@@ -144,7 +380,7 @@ const Hero = () => {
           {/* Main headline */}
           <Heading
             as="h1"
-            fontSize={{ base: 'clamp(2rem, 6vw, 3.5rem)', md: 'clamp(2.5rem, 4vw, 4rem)' }}
+            fontSize={{ base: 'clamp(1.5rem, 5vw, 2.8rem)', md: 'clamp(2rem, 3.5vw, 3.2rem)' }}
             fontWeight="bold"
             lineHeight="1.1"
             letterSpacing="tight"
