@@ -24,7 +24,7 @@ const Contact = () => {
       display="flex"
       alignItems="center"
     >
-      {/* Enhanced tech background elements */}
+      {/* Subtle blue background elements */}
       <Box
         position="absolute"
         top="0"
@@ -33,82 +33,20 @@ const Contact = () => {
         bottom="0"
         zIndex="0"
       >
-        {/* Animated grid pattern */}
-        <Box
-          position="absolute"
-          top="0"
-          left="0"
-          right="0"
-          bottom="0"
-          backgroundImage={`
-            linear-gradient(rgba(0, 191, 255, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 191, 255, 0.08) 1px, transparent 1px)
-          `}
-          backgroundSize="50px 50px"
-          opacity="0.4"
-          animation="gridMove 25s linear infinite"
-        />
-
-        {/* Glowing blue orbs */}
-        <Box
-          position="absolute"
-          top="15%"
-          right="10%"
-          width="300px"
-          height="300px"
-          borderRadius="50%"
-          background="radial-gradient(circle, rgba(0, 191, 255, 0.1) 0%, transparent 70%)"
-          animation="pulse 8s ease-in-out infinite"
-        />
-        
-        <Box
-          position="absolute"
-          bottom="15%"
-          left="5%"
-          width="200px"
-          height="200px"
-          borderRadius="50%"
-          background="radial-gradient(circle, rgba(0, 191, 255, 0.08) 0%, transparent 70%)"
-          animation="pulse 6s ease-in-out infinite reverse"
-        />
-
-        {/* Floating tech particles */}
-        {[...Array(12)].map((_, i) => (
+        {/* Floating blue particles - similar to logos section */}
+        {[...Array(8)].map((_, i) => (
           <Box
             key={i}
             position="absolute"
-            width="4px"
-            height="4px"
+            width="3px"
+            height="3px"
             borderRadius="50%"
-            background="rgba(0, 191, 255, 0.3)"
-            top={`${10 + (i * 8)}%`}
-            left={`${3 + (i * 7)}%`}
-            animation={`float${i % 3} ${5 + (i % 2)}s ease-in-out infinite`}
+            background="rgba(0, 191, 255, 0.25)"
+            top={`${15 + (i * 10)}%`}
+            left={`${8 + (i * 12)}%`}
+            animation={`float${i % 3} ${4 + (i % 2)}s ease-in-out infinite`}
           />
         ))}
-
-        {/* Geometric shapes */}
-        <Box
-          position="absolute"
-          top="30%"
-          left="15%"
-          width="80px"
-          height="80px"
-          border="2px solid rgba(0, 191, 255, 0.15)"
-          borderRadius="lg"
-          animation="rotateClockwise 20s linear infinite"
-        />
-        
-        <Box
-          position="absolute"
-          bottom="25%"
-          right="20%"
-          width="60px"
-          height="60px"
-          border="2px solid rgba(0, 191, 255, 0.1)"
-          borderRadius="50%"
-          animation="rotateCounterClockwise 15s linear infinite"
-        />
       </Box>
 
       <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1" h="full">
