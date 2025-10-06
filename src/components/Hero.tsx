@@ -451,7 +451,7 @@ const Hero = () => {
           {/* Main headline */}
           <Heading
             as="h1"
-            fontSize={{ base: 'clamp(1.4rem, 5vw, 2rem)', sm: 'clamp(1.6rem, 4vw, 2.2rem)', md: 'clamp(1.8rem, 3vw, 2.8rem)' }}
+            fontSize={{ base: 'clamp(1.6rem, 6vw, 2.2rem)', sm: 'clamp(1.6rem, 4vw, 2.2rem)', md: 'clamp(1.8rem, 3vw, 2.8rem)' }}
             fontWeight="bold"
             lineHeight="1.3"
             letterSpacing="tight"
@@ -463,7 +463,7 @@ const Hero = () => {
 
           {/* Subcopy */}
           <Text
-            fontSize={{ base: 'md', sm: 'md', md: 'lg' }}
+            fontSize={{ base: 'lg', sm: 'md', md: 'lg' }}
             color="white"
             maxW="600px"
             lineHeight="1.6"
@@ -481,9 +481,9 @@ const Hero = () => {
           </Text>
 
           {/* CTAs */}
-          <Box w="full" maxW={{ base: "full", sm: "480px", md: "580px" }} px={{ base: 0, sm: 2 }} mt={{ base: 8, md: 0 }}>
+          <Box w="full" maxW={{ base: "full", sm: "480px", md: "580px" }} px={{ base: 0, sm: 2 }} mt={{ base: 4, md: 0 }}>
             {/* Mobile: Vertical Stack */}
-            <VStack spacing={4} w="full" display={{ base: "flex", md: "none" }}>
+            <VStack spacing={{ base: 2, md: 4 }} w="full" display={{ base: "flex", md: "none" }}>
               <Button
                 bg="#D77A45"
                 color="white"

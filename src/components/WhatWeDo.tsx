@@ -109,7 +109,7 @@ const WhatWeDo = () => {
       </Box>
 
       <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1" h="full">
-        <VStack spacing={[6, 8]} h="full" justify="center">
+        <VStack spacing={[3, 8]} h="full" justify="center">
           {/* Section Title */}
           <Heading
             as="h2"
@@ -118,6 +118,7 @@ const WhatWeDo = () => {
             color="white"
             textAlign="center"
             letterSpacing="tight"
+            mt={{ base: 4, md: 0 }}
           >
             What we do
           </Heading>
@@ -221,6 +222,7 @@ const WhatWeDo = () => {
               });
             }}
             mt={1.4}
+            mb={{ base: 4, md: 0 }}
           >
             Get in touch
           </Button>

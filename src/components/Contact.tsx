@@ -184,27 +184,28 @@ const Contact = () => {
                 </FormControl>
 
                 <Button
-                  bg="#D77A45 !important"
+                  bg="linear-gradient(135deg, #D77A45 0%, #C96A35 100%)"
                   color="white"
                   size="lg"
                   w="full"
                   _hover={{
-                    bg: '#C96A35',
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 8px 20px rgba(215, 122, 69, 0.4)',
+                    bg: 'linear-gradient(135deg, #C96A35 0%, #B85A25 100%)',
+                    transform: 'translateY(-3px)',
+                    boxShadow: '0 12px 25px rgba(215, 122, 69, 0.5)',
                   }}
                   _active={{
-                    bg: '#B85A25',
-                    transform: 'scale(0.97)',
-                    boxShadow: '0 4px 10px rgba(215, 122, 69, 0.3)'
+                    bg: 'linear-gradient(135deg, #B85A25 0%, #A64A1A 100%)',
+                    transform: 'scale(0.96)',
+                    boxShadow: '0 6px 15px rgba(215, 122, 69, 0.4)'
                   }}
                   _focus={{
-                    boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.3)'
+                    boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.4)'
                   }}
-                  transition="all 0.25s ease"
+                  transition="all 0.3s ease"
                   fontWeight="bold"
                   fontSize="lg"
-                  boxShadow="0 4px 14px rgba(215, 122, 69, 0.3)"
+                  borderRadius="xl"
+                  boxShadow="0 6px 18px rgba(215, 122, 69, 0.4)"
                 >
                   Send Message
                 </Button>
