@@ -14,12 +14,15 @@ import {
 
 const Contact = () => {
   return (
-    <Box 
-      id="contact" 
-      py={[16, 20]} 
+    <Box
+      id="contact"
+      py={[5.6, 8.4]}
+      minH="500px"
       bg="white"
       position="relative"
       overflow="hidden"
+      display="flex"
+      alignItems="center"
     >
       {/* Enhanced tech background elements */}
       <Box
@@ -108,8 +111,8 @@ const Contact = () => {
         />
       </Box>
 
-      <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1">
-        <VStack spacing={[12, 16]}>
+      <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1" h="full">
+        <VStack spacing={[6, 8]} h="full" justify="center">
           {/* Section Header */}
           <VStack spacing={4} textAlign="center" maxW="600px">
             <Heading
@@ -243,7 +246,7 @@ const Contact = () => {
                 </FormControl>
 
                 <Button
-                  bg="#D77A45"
+                  bg="#D77A45 !important"
                   color="white"
                   size="lg"
                   w="full"

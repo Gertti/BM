@@ -34,12 +34,15 @@ const WhatWeDo = () => {
   ];
 
   return (
-    <Box 
-      id="whatwedo" 
-      py={[16, 20]} 
+    <Box
+      id="whatwedo"
+      py={[5.6, 8.4]}
+      minH="400px"
       bg="black"
       position="relative"
       overflow="hidden"
+      display="flex"
+      alignItems="center"
     >
       {/* Techy Background Elements */}
       <Box
@@ -105,8 +108,8 @@ const WhatWeDo = () => {
         ))}
       </Box>
 
-      <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1">
-        <VStack spacing={[12, 16]}>
+      <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1" h="full">
+        <VStack spacing={[6, 8]} h="full" justify="center">
           {/* Section Title */}
           <Heading
             as="h2"
@@ -217,7 +220,7 @@ const WhatWeDo = () => {
                 behavior: 'smooth'
               });
             }}
-            mt={4}
+            mt={1.4}
           >
             Get in touch
           </Button>

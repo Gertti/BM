@@ -37,11 +37,11 @@ const Hero = () => {
   return (
     <Box
       ref={heroRef}
-      minH={{ base: 'calc(100vh - 60px)', md: '100vh' }}
+      minH={{ base: 'calc(100vh - 60px)', md: 'calc(100vh - 60px)' }}
       display="flex"
       alignItems="center"
-      pt={{ base: 4, md: 0 }}
-      mt={{ base: -4, md: -8 }}
+      pt={{ base: 6, md: 0 }}
+      mt={{ base: -6, md: -4 }}
       position="relative"
       overflow="hidden"
     >
@@ -417,26 +417,26 @@ const Hero = () => {
         filter="blur(40px)"
       />
 
-      <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1">
-        <VStack spacing={[4, 6, 8]} textAlign="center" maxW="800px" mx="auto">
+      <Container maxW="1100px" px={[6, 4, 6]} position="relative" zIndex="1">
+        <VStack spacing={[6, 3, 4]} textAlign="center" maxW="700px" mx="auto">
           {/* Hero Complex Logo */}
           <Box display="flex" alignItems="center" justifyContent="center">
             <Image
               src={logoImage}
               alt="Hero Complex"
-              h={{ base: "200px", sm: "280px", md: "380px", lg: "450px" }}
+              h={{ base: "312px", sm: "343px", md: "374px", lg: "406px" }}
               w="auto"
-              maxW="90vw"
+              maxW="95vw"
               fallback={
                 <Box
-                  w={{ base: "300px", sm: "350px", md: "400px" }}
-                  h={{ base: "250px", sm: "300px", md: "350px" }}
+                  w={{ base: "380px", sm: "420px", md: "460px" }}
+                  h={{ base: "312px", sm: "343px", md: "374px" }}
                   bg="whiteAlpha.100"
                   borderRadius="lg"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
+                  fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }}
                   color="whiteAlpha.700"
                   textAlign="center"
                   px={4}
@@ -451,19 +451,19 @@ const Hero = () => {
           {/* Main headline */}
           <Heading
             as="h1"
-            fontSize={{ base: 'clamp(1.3rem, 5vw, 2rem)', sm: 'clamp(1.8rem, 5vw, 2.5rem)', md: 'clamp(2rem, 3.5vw, 3.2rem)' }}
+            fontSize={{ base: 'clamp(1.4rem, 5vw, 2rem)', sm: 'clamp(1.6rem, 4vw, 2.2rem)', md: 'clamp(1.8rem, 3vw, 2.8rem)' }}
             fontWeight="bold"
-            lineHeight="1.2"
+            lineHeight="1.3"
             letterSpacing="tight"
             color="white"
-            px={{ base: 2, sm: 0 }}
+            px={{ base: 1, sm: 0 }}
           >
             Intelligent Automation for Modern Businesses
           </Heading>
 
           {/* Subcopy */}
           <Text
-            fontSize={{ base: 'sm', sm: 'md', md: 'lg' }}
+            fontSize={{ base: 'md', sm: 'md', md: 'lg' }}
             color="white"
             maxW="600px"
             lineHeight="1.6"
@@ -481,9 +481,9 @@ const Hero = () => {
           </Text>
 
           {/* CTAs */}
-          <Box w="full" maxW={{ base: "full", sm: "500px", md: "600px" }} px={{ base: 0, sm: 4 }} mt={{ base: 6, md: 0 }}>
+          <Box w="full" maxW={{ base: "full", sm: "480px", md: "580px" }} px={{ base: 0, sm: 2 }} mt={{ base: 8, md: 0 }}>
             {/* Mobile: Vertical Stack */}
-            <VStack spacing={3} w="full" display={{ base: "flex", md: "none" }}>
+            <VStack spacing={4} w="full" display={{ base: "flex", md: "none" }}>
               <Button
                 bg="#D77A45"
                 color="white"
@@ -555,7 +555,7 @@ const Hero = () => {
             </VStack>
 
             {/* Desktop: Horizontal Stack */}
-            <HStack spacing={4} w="full" display={{ base: "none", md: "flex" }} align="stretch">
+            <HStack spacing={3} w="full" display={{ base: "none", md: "flex" }} align="stretch">
               <Button
                 bg="#D77A45"
                 color="white"

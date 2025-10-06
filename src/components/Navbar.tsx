@@ -20,10 +20,10 @@ const Navbar = () => {
       backdropFilter="blur(10px)"
     >
       <Container maxW="1200px" px={[4, 6, 8]}>
-        <Flex h="60px" align="center" justify="space-between">
+        <Flex h={{ base: "70px", md: "80px" }} align="center" justify="space-between">
           {/* Logo */}
           <Text
-            fontSize="xl"
+            fontSize={{ base: "3xl", md: "3xl" }}
             fontWeight="bold"
             color="white"
             letterSpacing="tight"

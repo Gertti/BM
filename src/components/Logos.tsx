@@ -57,12 +57,15 @@ const Logos = () => {
   }, []);
 
   return (
-    <Box 
-      pt={[1.5, 2]}
-      pb={[0.5, 0.5]} 
+    <Box
+      pt={[0.35, 0.7]}
+      pb={[0.1, 0.3]}
+      minH="200px"
       bg="white"
       position="relative"
       overflow="hidden"
+      display="flex"
+      alignItems="center"
     >
       {/* Enhanced tech background elements */}
       <Box
@@ -140,8 +143,8 @@ const Logos = () => {
         />
       </Box>
       
-      <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1">
-        <VStack spacing={3}>
+      <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1" h="full">
+        <VStack spacing={3} h="full" justify="center">
           <Text
             fontSize="sm"
             color="blackAlpha.700"

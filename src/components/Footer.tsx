@@ -12,7 +12,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Box id="contact" py={[12, 16]} bg="gray.900" borderTop="1px solid" borderColor="whiteAlpha.200">
+    <Box id="contact" py={[12, 16]} bg="black" borderTop="1px solid" borderColor="whiteAlpha.200">
       <Container maxW="1200px" px={[4, 6, 8]}>
         <VStack spacing={8}>
           {/* Main CTA Section */}
@@ -50,12 +50,12 @@ const Footer = () => {
             gap={{ base: 4, md: 0 }}
           >
             <Text fontSize="sm" color="whiteAlpha.600">
-              © {currentYear} Ben — All rights reserved.
+              © 2025 - All rights reserved.
             </Text>
-            
+
             <HStack spacing={6} display={{ base: 'none', md: 'flex' }}>
               <Text fontSize="sm" color="whiteAlpha.600">
-                hello@ben.com
+                hello@herocomplex.com
               </Text>
             </HStack>
           </Flex>
