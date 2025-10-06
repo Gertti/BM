@@ -50,7 +50,7 @@ const Footer = () => {
             gap={{ base: 4, md: 0 }}
           >
             <Text fontSize="sm" color="whiteAlpha.600">
-              © 2025 - All rights reserved.
+              © {currentYear} - All rights reserved.
             </Text>
 
             <HStack spacing={6} display={{ base: 'none', md: 'flex' }}>
