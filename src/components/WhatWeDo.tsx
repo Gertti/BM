@@ -36,7 +36,8 @@ const WhatWeDo = () => {
   return (
     <Box
       id="whatwedo"
-      py={[5.6, 8.4]}
+      pt={{ base: 2, md: 3 }}
+      pb={[5.6, 8.4]}
       minH="400px"
       bg="black"
       position="relative"

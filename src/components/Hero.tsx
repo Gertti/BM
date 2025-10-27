@@ -37,7 +37,7 @@ const Hero = () => {
   return (
     <Box
       ref={heroRef}
-      minH={{ base: 'calc(100vh - 60px)', md: 'calc(100vh - 60px)' }}
+      minH={{ base: 'calc(100vh - 300px)', md: 'calc(100vh - 200px)' }}
       display="flex"
       alignItems="center"
       pt={{ base: 6, md: 0 }}
@@ -418,7 +418,7 @@ const Hero = () => {
       />
 
       <Container maxW="1100px" px={[6, 4, 6]} position="relative" zIndex="1">
-        <VStack spacing={[6, 3, 4]} textAlign="center" maxW="700px" mx="auto">
+        <VStack spacing={[4, 2, 3]} textAlign="center" w="full" maxW="800px" mx="auto">
           {/* Hero Complex Logo */}
           <Box display="flex" alignItems="center" justifyContent="center">
             <Image
@@ -451,23 +451,29 @@ const Hero = () => {
           {/* Main headline */}
           <Heading
             as="h1"
-            fontSize={{ base: 'clamp(1.6rem, 6vw, 2.2rem)', sm: 'clamp(1.6rem, 4vw, 2.2rem)', md: 'clamp(1.8rem, 3vw, 2.8rem)' }}
+            fontSize={{ base: 'clamp(1.4rem, 5vw, 2rem)', sm: 'clamp(1.4rem, 3.5vw, 2rem)', md: 'clamp(1.6rem, 2.5vw, 2.4rem)' }}
             fontWeight="bold"
-            lineHeight="1.3"
+            lineHeight="1.2"
             letterSpacing="tight"
             color="white"
-            px={{ base: 1, sm: 0 }}
+            textAlign="center"
+            w="full"
+            px={{ base: 2, sm: 0 }}
           >
             Intelligent Automation for Modern Businesses
           </Heading>
 
           {/* Subcopy */}
           <Text
-            fontSize={{ base: 'lg', sm: 'md', md: 'lg' }}
+            fontSize={{ base: 'sm', sm: 'sm', md: 'md' }}
             color="white"
-            maxW="600px"
-            lineHeight="1.6"
-            px={{ base: 2, sm: 0 }}
+            lineHeight="1.4"
+            textAlign="center"
+            w="full"
+            whiteSpace="nowrap"
+            letterSpacing="wide"
+            mx="auto"
+            px={{ base: 4, sm: 0 }}
           >
             We{' '}
             <Text as="span" fontWeight="bold">
@@ -481,7 +487,7 @@ const Hero = () => {
           </Text>
 
           {/* CTAs */}
-          <Box w="full" maxW={{ base: "full", sm: "480px", md: "580px" }} px={{ base: 0, sm: 2 }} mt={{ base: 4, md: 0 }}>
+          <Box w="full" maxW={{ base: "full", sm: "480px", md: "580px" }} px={{ base: 0, sm: 2 }} mt={{ base: 2, md: 0 }}>
             {/* Mobile: Vertical Stack */}
             <VStack spacing={{ base: 2, md: 4 }} w="full" display={{ base: "flex", md: "none" }}>
               <Button
