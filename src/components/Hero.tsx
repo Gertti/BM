@@ -492,20 +492,20 @@ const Hero = () => {
             {/* Mobile: Vertical Stack */}
             <VStack spacing={{ base: 2, md: 4 }} w="full" display={{ base: "flex", md: "none" }}>
               <Button
-                bg="#D77A45"
+                bg="#E88A5C"
                 color="white"
-                _hover={{ 
-                  bg: '#C96A35',
+                _hover={{
+                  bg: '#D77A45',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 8px 20px rgba(215, 122, 69, 0.4)'
+                  boxShadow: '0 8px 20px rgba(232, 138, 92, 0.4)'
                 }}
-                _active={{ 
-                  bg: '#B85A25', 
+                _active={{
+                  bg: '#C96A35',
                   transform: 'scale(0.97)',
-                  boxShadow: '0 4px 10px rgba(215, 122, 69, 0.3)'
+                  boxShadow: '0 4px 10px rgba(232, 138, 92, 0.3)'
                 }}
                 _focus={{
-                  boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.3)'
+                  boxShadow: '0 0 0 3px rgba(232, 138, 92, 0.3)'
                 }}
                 size="lg"
                 fontSize="md"
@@ -519,7 +519,7 @@ const Hero = () => {
                 borderRadius="lg"
                 fontWeight="bold"
                 transition="all 0.25s ease"
-                boxShadow="0 4px 14px rgba(215, 122, 69, 0.3)"
+                boxShadow="0 4px 14px rgba(232, 138, 92, 0.3)"
               >
                 Get Started
               </Button>
@@ -565,20 +565,20 @@ const Hero = () => {
             {/* Desktop: Horizontal Stack */}
             <HStack spacing={3} w="full" display={{ base: "none", md: "flex" }} align="stretch">
               <Button
-                bg="#D77A45"
+                bg="#E88A5C"
                 color="white"
-                _hover={{ 
-                  bg: '#C96A35',
+                _hover={{
+                  bg: '#D77A45',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 8px 20px rgba(215, 122, 69, 0.4)'
+                  boxShadow: '0 8px 20px rgba(232, 138, 92, 0.4)'
                 }}
-                _active={{ 
-                  bg: '#B85A25', 
+                _active={{
+                  bg: '#C96A35',
                   transform: 'scale(0.97)',
-                  boxShadow: '0 4px 10px rgba(215, 122, 69, 0.3)'
+                  boxShadow: '0 4px 10px rgba(232, 138, 92, 0.3)'
                 }}
                 _focus={{
-                  boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.3)'
+                  boxShadow: '0 0 0 3px rgba(232, 138, 92, 0.3)'
                 }}
                 size="lg"
                 fontSize="lg"
@@ -593,7 +593,7 @@ const Hero = () => {
                 borderRadius="lg"
                 fontWeight="bold"
                 transition="all 0.25s ease"
-                boxShadow="0 4px 14px rgba(215, 122, 69, 0.3)"
+                boxShadow="0 4px 14px rgba(232, 138, 92, 0.3)"
               >
                 Get Started
               </Button>
