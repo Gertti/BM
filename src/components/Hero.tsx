@@ -37,11 +37,11 @@ const Hero = () => {
   return (
     <Box
       ref={heroRef}
-      minH={{ base: 'calc(100vh - 250px)', md: 'calc(100vh - 200px)' }}
+      minH={{ base: 'calc(100vh - 300px)', md: 'calc(100vh - 200px)' }}
       display="flex"
       alignItems="center"
       pt={{ base: 6, md: 0 }}
-      mt={{ base: -6, md: -4 }}
+      pb={{ base: 8, md: 6 }}
       position="relative"
       overflow="hidden"
     >
