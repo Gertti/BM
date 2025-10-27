@@ -37,7 +37,7 @@ const Hero = () => {
   return (
     <Box
       ref={heroRef}
-      minH={{ base: 'calc(100vh - 300px)', md: 'calc(100vh - 200px)' }}
+      minH={{ base: 'calc(100vh - 250px)', md: 'calc(100vh - 200px)' }}
       display="flex"
       alignItems="center"
       pt={{ base: 6, md: 0 }}
@@ -467,21 +467,22 @@ const Hero = () => {
           <Text
             fontSize={{ base: 'sm', sm: 'sm', md: 'md' }}
             color="white"
-            lineHeight="1.4"
+            lineHeight={{ base: "1.5", md: "1.4" }}
             textAlign="center"
             w="full"
-            whiteSpace="nowrap"
             letterSpacing="wide"
             mx="auto"
-            px={{ base: 4, sm: 0 }}
+            px={{ base: 2, sm: 0 }}
+            display="block"
+            whiteSpace={{ base: "normal", sm: "nowrap" }}
           >
             We{' '}
             <Text as="span" fontWeight="bold">
               design, connect, and automate
             </Text>{' '}
-            your growth systems so - your team focuses on{' '}
+            your growth systems so your team can focus on{' '}
             <Text as="span" fontWeight="bold">
-              what matters
+              what matters most
             </Text>
             .
           </Text>
