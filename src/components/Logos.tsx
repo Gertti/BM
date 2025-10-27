@@ -69,7 +69,7 @@ const Logos = () => {
   return (
     <Box bg="white" pt={{ base: 4, md: 6 }} pb={{ base: 0, md: 0 }}>
       <Container maxW="1400px" px={[6, 4, 6]}>
-        <VStack spacing={{ base: 0, md: 0 }}>
+        <VStack spacing={{ base: 0, md: -4 }}>
           {/* Title */}
           <Heading
             as="h2"
@@ -85,7 +85,7 @@ const Logos = () => {
           </Heading>
 
           {/* Desktop: Horizontal Row */}
-          <Box display={{ base: "none", md: "block" }} w="full">
+          <Box display={{ base: "none", md: "block" }} w="full" mt={{ base: 0, md: -6 }}>
             <HStack
               spacing={{ base: 12, md: 16, lg: 20 }}
               justify="center"

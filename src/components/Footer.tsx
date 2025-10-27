@@ -3,7 +3,6 @@ import {
   Container,
   Flex,
   Text,
-  Button,
   VStack,
   HStack,
 } from '@chakra-ui/react';
@@ -51,28 +50,16 @@ const Footer = () => {
 
       <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1">
         <VStack spacing={8}>
-          {/* Main CTA Section */}
-          <VStack spacing={6} textAlign="center">
-            <Text
-              fontSize={{ base: 'xl', md: '2xl' }}
-              fontWeight="semibold"
-              color="white"
-            >
-              Ready to automate your growth?
-            </Text>
-            <Button
-              bg="#D77A45"
-              color="white"
-              _hover={{ bg: '#C96A35' }}
-              size="lg"
-              onClick={() => {
-                // In a real app, this would open a calendar booking system
-                window.open('mailto:hello@ben.com?subject=Book a call', '_blank');
-              }}
-            >
-              Book a call
-            </Button>
-          </VStack>
+          {/* Thank You Message */}
+          <Text
+            fontSize={{ base: '2xl', md: '3xl' }}
+            fontWeight="bold"
+            color="white"
+            textAlign="center"
+            letterSpacing="tight"
+          >
+            Let's automate your growth together  🚀
+          </Text>
 
           {/* Footer Bottom */}
           <Flex

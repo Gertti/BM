@@ -8,10 +8,10 @@ import {
   Button,
   Icon,
 } from '@chakra-ui/react';
-import { 
-  FaChartLine, 
-  FaCogs, 
-  FaRocket 
+import {
+  FaBullseye,
+  FaNetworkWired,
+  FaChartBar
 } from 'react-icons/fa';
 
 const WhatWeDo = () => {
@@ -19,17 +19,17 @@ const WhatWeDo = () => {
     {
       title: 'Strategy & Clarity',
       description: 'Define growth thesis, KPIs, and stack.',
-      icon: FaChartLine,
+      icon: FaBullseye,
     },
     {
       title: 'Systems & Automations',
       description: 'Build lead flows and integrations.',
-      icon: FaCogs,
+      icon: FaNetworkWired,
     },
     {
       title: 'Performance & Scale',
       description: 'Measure, test, and optimize.',
-      icon: FaRocket,
+      icon: FaChartBar,
     },
   ];
 

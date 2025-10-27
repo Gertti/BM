@@ -76,7 +76,7 @@ const Contact = () => {
             maxW="600px"
             w="full"
             mx="auto"
-            bg="blackAlpha.50"
+            bg="white"
             p={{ base: 6, md: 8 }}
             borderRadius="xl"
             border="2px solid"
@@ -184,31 +184,42 @@ const Contact = () => {
                 </FormControl>
 
                 <Button
-                  bg="linear-gradient(135deg, #D77A45 0%, #C96A35 100%)"
-                  color="white"
-                  size="lg"
-                  w="full"
+                  bg="#D77A45 !important"
+                  color="white !important"
                   _hover={{
-                    bg: 'linear-gradient(135deg, #C96A35 0%, #B85A25 100%)',
-                    transform: 'translateY(-3px)',
-                    boxShadow: '0 12px 25px rgba(215, 122, 69, 0.5)',
+                    bg: '#C96A35 !important',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 20px rgba(215, 122, 69, 0.4)'
                   }}
                   _active={{
-                    bg: 'linear-gradient(135deg, #B85A25 0%, #A64A1A 100%)',
-                    transform: 'scale(0.96)',
-                    boxShadow: '0 6px 15px rgba(215, 122, 69, 0.4)'
+                    bg: '#B85A25 !important',
+                    transform: 'scale(0.97)',
+                    boxShadow: '0 4px 10px rgba(215, 122, 69, 0.3)'
                   }}
                   _focus={{
-                    boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.4)'
+                    boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.3)'
                   }}
-                  transition="all 0.3s ease"
+                  size="lg"
+                  fontSize="md"
+                  h="52px"
+                  w="full"
+                  borderRadius="lg"
                   fontWeight="bold"
-                  fontSize="lg"
-                  borderRadius="xl"
-                  boxShadow="0 6px 18px rgba(215, 122, 69, 0.4)"
+                  transition="all 0.25s ease"
+                  boxShadow="0 4px 14px rgba(215, 122, 69, 0.3)"
+                  sx={{
+                    backgroundColor: '#D77A45 !important',
+                    '&:hover': {
+                      backgroundColor: '#C96A35 !important'
+                    },
+                    '&:active': {
+                      backgroundColor: '#B85A25 !important'
+                    }
+                  }}
                 >
                   Send Message
                 </Button>
+
               </VStack>
             </Box>
         </VStack>
