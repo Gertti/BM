@@ -19,17 +19,17 @@ import logo6 from '../assets/6.png';
 const Logos = () => {
   const logos = [logo1, logo2, logo3, logo4, logo5, logo6];
   const sliderRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(0);
 
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
-    let startTime: number;
+    let startTime: number | undefined;
     const duration = 20000; // 20 seconds
 
     const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
+      if (startTime === undefined) startTime = currentTime;
       const elapsed = currentTime - startTime;
       const progress = (elapsed % duration) / duration;
 
