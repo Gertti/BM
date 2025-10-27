@@ -544,20 +544,21 @@ const Hero = () => {
                     transform: 'scale(0.97)',
                     boxShadow: '0 4px 10px rgba(255, 255, 255, 0.1)'
                   }}
-                  _focus={{
-                    boxShadow: '0 0 0 3px rgba(255, 255, 255, 0.2)'
-                  }}
-                  size="lg"
-                  fontSize="md"
-                  h="52px"
-                  w="full"
-                  borderRadius="lg"
-                  fontWeight="bold"
-                  transition="all 0.25s ease"
-                  boxShadow="0 4px 14px rgba(255, 255, 255, 0.1)"
-                >
-                  See what we do
-                </Button>
+                _focus={{
+                  boxShadow: '0 0 0 3px rgba(255, 255, 255, 0.2)'
+                }}
+                size="lg"
+                fontSize="md"
+                h="52px"
+                w="full"
+                borderRadius="lg"
+                fontWeight="bold"
+                transition="all 0.25s ease"
+                boxShadow="0 4px 14px rgba(255, 255, 255, 0.1)"
+                mb={{ base: 5, md: 0 }}
+              >
+                See what we do
+              </Button>
               </Link>
             </VStack>
 
