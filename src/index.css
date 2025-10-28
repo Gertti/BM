@@ -22,7 +22,7 @@ html {
 
 /* Focus styles for accessibility */
 *:focus {
-  outline: 2px solid #D77A45;
+  outline: 2px solid #E88A5C;
   outline-offset: 2px;
 }
 

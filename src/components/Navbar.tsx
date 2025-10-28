@@ -2,7 +2,6 @@ import {
   Box,
   Container,
   Flex,
-  Link,
   Button,
   Text,
   HStack,
@@ -33,19 +32,31 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
-            <Link
-              href="#whatwedo"
+            <Button
+              variant="ghost"
               color="whiteAlpha.700"
-              _hover={{ color: 'white' }}
+              _hover={{ color: 'white', bg: 'transparent' }}
               transition="color 0.2s"
               fontWeight="medium"
+              fontSize="md"
+              p={0}
+              h="auto"
+              onClick={() => {
+                const element = document.getElementById('whatwedo');
+                if (element) {
+                  element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
             >
               What we do
-            </Link>
+            </Button>
             <Button
-              bg="#D77A45"
+              bg="#E88A5C"
               color="white"
-              _hover={{ bg: '#C96A35' }}
+              _hover={{ bg: '#D77A4B' }}
               size="sm"
               onClick={() => {
                 document.getElementById('contact')?.scrollIntoView({
@@ -53,15 +64,15 @@ const Navbar = () => {
                 });
               }}
             >
-              Book a call
+              Partner with Us
             </Button>
           </HStack>
 
           {/* Mobile CTA */}
           <Button
-            bg="#D77A45"
+            bg="#E88A5C"
             color="white"
-            _hover={{ bg: '#C96A35' }}
+            _hover={{ bg: '#D77A4B' }}
             size="sm"
             display={{ base: 'flex', md: 'none' }}
             onClick={() => {
@@ -70,7 +81,7 @@ const Navbar = () => {
               });
             }}
           >
-            Book a call
+            Partner with Us
           </Button>
         </Flex>
       </Container>

@@ -293,20 +293,20 @@ const Contact = () => {
                   type="submit"
                   isLoading={isLoading}
                   loadingText="Sending..."
-                  bg="#D77A45 !important"
+                  bg="#E88A5C !important"
                   color="white !important"
                   _hover={{
-                    bg: isLoading ? '#D77A45 !important' : '#C96A35 !important',
+                    bg: isLoading ? '#E88A5C !important' : '#D77A4B !important',
                     transform: isLoading ? 'none' : 'translateY(-2px)',
-                    boxShadow: isLoading ? '0 4px 14px rgba(215, 122, 69, 0.3)' : '0 8px 20px rgba(215, 122, 69, 0.4)'
+                    boxShadow: isLoading ? '0 4px 14px rgba(232, 138, 92, 0.3)' : '0 8px 20px rgba(232, 138, 92, 0.4)'
                   }}
                   _active={{
-                    bg: '#B85A25 !important',
+                    bg: '#C96A3A !important',
                     transform: 'scale(0.97)',
-                    boxShadow: '0 4px 10px rgba(215, 122, 69, 0.3)'
+                    boxShadow: '0 4px 10px rgba(232, 138, 92, 0.3)'
                   }}
                   _focus={{
-                    boxShadow: '0 0 0 3px rgba(215, 122, 69, 0.3)'
+                    boxShadow: '0 0 0 3px rgba(232, 138, 92, 0.3)'
                   }}
                   size="lg"
                   fontSize="md"
@@ -315,14 +315,14 @@ const Contact = () => {
                   borderRadius="lg"
                   fontWeight="bold"
                   transition="all 0.25s ease"
-                  boxShadow="0 4px 14px rgba(215, 122, 69, 0.3)"
+                  boxShadow="0 4px 14px rgba(232, 138, 92, 0.3)"
                   sx={{
-                    backgroundColor: '#D77A45 !important',
+                    backgroundColor: '#E88A5C !important',
                     '&:hover': {
-                      backgroundColor: isLoading ? '#D77A45 !important' : '#C96A35 !important'
+                      backgroundColor: isLoading ? '#E88A5C !important' : '#D77A4B !important'
                     },
                     '&:active': {
-                      backgroundColor: '#B85A25 !important'
+                      backgroundColor: '#C96A3A !important'
                     }
                   }}
                 >

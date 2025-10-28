@@ -6,7 +6,6 @@ import {
   Heading,
   Text,
   Button,
-  Link,
   Image,
 } from '@chakra-ui/react';
 import { useState, useEffect, useRef } from 'react';
@@ -491,12 +490,12 @@ const Hero = () => {
                 bg="#E88A5C"
                 color="white"
                 _hover={{
-                  bg: '#D77A45',
+                  bg: '#D77A4B',
                   transform: 'translateY(-2px)',
                   boxShadow: '0 8px 20px rgba(232, 138, 92, 0.4)'
                 }}
                 _active={{
-                  bg: '#C96A35',
+                  bg: '#C96A3A',
                   transform: 'scale(0.97)',
                   boxShadow: '0 4px 10px rgba(232, 138, 92, 0.3)'
                 }}
@@ -519,43 +518,46 @@ const Hero = () => {
               >
                 Partner with Us
               </Button>
-              <Link
-                href="#whatwedo"
-                _hover={{ textDecoration: 'none' }}
-                w="full"
-              >
-                <Button
-                  bg="transparent"
-                  color="white"
-                  border="2px solid"
-                  borderColor="whiteAlpha.400"
-                  _hover={{ 
-                    bg: 'whiteAlpha.100', 
-                    borderColor: 'whiteAlpha.600',
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)'
-                  }}
-                  _active={{ 
-                    bg: 'whiteAlpha.200', 
-                    transform: 'scale(0.97)',
-                    boxShadow: '0 4px 10px rgba(255, 255, 255, 0.1)'
-                  }}
-                _focus={{
-                  boxShadow: '0 0 0 3px rgba(255, 255, 255, 0.2)'
+              <Button
+                bg="transparent"
+                color="white"
+                border="2px solid"
+                borderColor="whiteAlpha.400"
+                _hover={{ 
+                  bg: 'whiteAlpha.100', 
+                  borderColor: 'whiteAlpha.600',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)'
                 }}
-                size="lg"
-                fontSize="md"
-                h="52px"
-                w="full"
-                borderRadius="lg"
-                fontWeight="bold"
-                transition="all 0.25s ease"
-                boxShadow="0 4px 14px rgba(255, 255, 255, 0.1)"
-                mb={{ base: 5, md: 0 }}
-              >
-                See what we do
-              </Button>
-              </Link>
+                _active={{ 
+                  bg: 'whiteAlpha.200', 
+                  transform: 'scale(0.97)',
+                  boxShadow: '0 4px 10px rgba(255, 255, 255, 0.1)'
+                }}
+              _focus={{
+                boxShadow: '0 0 0 3px rgba(255, 255, 255, 0.2)'
+              }}
+              size="lg"
+              fontSize="md"
+              h="52px"
+              w="full"
+              borderRadius="lg"
+              fontWeight="bold"
+              transition="all 0.25s ease"
+              boxShadow="0 4px 14px rgba(255, 255, 255, 0.1)"
+              mb={{ base: 5, md: 0 }}
+              onClick={() => {
+                const element = document.getElementById('whatwedo');
+                if (element) {
+                  element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
+            >
+              See what we do
+            </Button>
             </VStack>
 
             {/* Desktop: Horizontal Stack */}
@@ -564,12 +566,12 @@ const Hero = () => {
                 bg="#E88A5C"
                 color="white"
                 _hover={{
-                  bg: '#D77A45',
+                  bg: '#D77A4B',
                   transform: 'translateY(-2px)',
                   boxShadow: '0 8px 20px rgba(232, 138, 92, 0.4)'
                 }}
                 _active={{
-                  bg: '#C96A35',
+                  bg: '#C96A3A',
                   transform: 'scale(0.97)',
                   boxShadow: '0 4px 10px rgba(232, 138, 92, 0.3)'
                 }}
@@ -594,8 +596,6 @@ const Hero = () => {
                 Partner with Us
               </Button>
               <Button
-                as={Link}
-                href="#whatwedo"
                 bg="transparent"
                 color="white"
                 border="2px solid"
@@ -604,8 +604,7 @@ const Hero = () => {
                   bg: 'whiteAlpha.100', 
                   borderColor: 'whiteAlpha.600',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)',
-                  textDecoration: 'none'
+                  boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)'
                 }}
                 _active={{ 
                   bg: 'whiteAlpha.200', 
@@ -624,6 +623,15 @@ const Hero = () => {
                 fontWeight="bold"
                 transition="all 0.25s ease"
                 boxShadow="0 4px 14px rgba(255, 255, 255, 0.1)"
+                onClick={() => {
+                  const element = document.getElementById('whatwedo');
+                  if (element) {
+                    element.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }
+                }}
               >
                 See what we do
               </Button>

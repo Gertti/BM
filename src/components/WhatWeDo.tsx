@@ -375,12 +375,6 @@ const WhatWeDo = () => {
                   Master
                 </Text>
               </Heading>
-              <Text
-                fontSize="lg"
-                color="whiteAlpha.700"
-              >
-                And many, many more...
-              </Text>
             </VStack>
 
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} w="full">
@@ -434,6 +428,15 @@ const WhatWeDo = () => {
                 </Box>
               ))}
             </SimpleGrid>
+
+            <Text
+              fontSize="lg"
+              color="whiteAlpha.700"
+              textAlign="center"
+              mt={3}
+            >
+              And many, many more...
+            </Text>
           </VStack>
 
           {/* Testimonials */}
