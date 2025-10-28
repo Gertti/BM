@@ -11,9 +11,6 @@ import {
   List,
   ListItem,
   ListIcon,
-  Grid,
-  GridItem,
-  Divider,
 } from '@chakra-ui/react';
 import {
   FaShareNodes,
