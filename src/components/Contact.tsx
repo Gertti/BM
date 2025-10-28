@@ -24,7 +24,6 @@ const Contact = () => {
     message: ''
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const formRef = useRef<HTMLFormElement>(null);
   const toast = useToast();
 
@@ -45,10 +44,8 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setSubmitStatus('idle');
 
     try {
-
       // Prepare template parameters for both emails
       const templateParams = {
         firstName: formData.firstName,
@@ -76,7 +73,6 @@ const Contact = () => {
       );
 
       if (notificationResult.status === 200 && confirmationResult.status === 200) {
-        setSubmitStatus('success');
         setFormData({
           firstName: '',
           lastName: '',
@@ -95,7 +91,6 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('EmailJS error:', error);
-      setSubmitStatus('error');
       
       toast({
         title: 'Failed to send message',
