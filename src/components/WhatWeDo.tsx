@@ -17,18 +17,18 @@ import {
 const WhatWeDo = () => {
   const services = [
     {
-      title: 'Strategy & Clarity',
-      description: 'Define growth thesis, KPIs, and stack.',
+      title: 'Growth Strategy Development',
+      description: 'Clear growth goals with a unique blueprint on how to get there.',
       icon: FaBullseye,
     },
     {
-      title: 'Systems & Automations',
-      description: 'Build lead flows and integrations.',
+      title: 'Advertiser and Publisher Network',
+      description: 'Be connected with all of the missing links in your system.',
       icon: FaNetworkWired,
     },
     {
-      title: 'Performance & Scale',
-      description: 'Measure, test, and optimize.',
+      title: 'Technology',
+      description: 'State of the art tools that lend a competitive edge over the rest of the market.',
       icon: FaChartBar,
     },
   ];

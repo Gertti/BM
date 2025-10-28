@@ -81,7 +81,7 @@ const Logos = () => {
             mt={{ base: '-2rem', md: '-1rem' }}
             pt={{ base: 4, md: 3 }}
           >
-            Trusted by teams using:
+            Our Trusted Partners:
           </Heading>
 
           {/* Desktop: Horizontal Row */}

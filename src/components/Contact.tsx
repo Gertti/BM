@@ -168,7 +168,7 @@ const Contact = () => {
                     Message
                   </FormLabel>
                   <Textarea
-                    placeholder="Tell us about your automation needs..."
+                    placeholder="Please write a short message explaining your need…"
                     bg="white"
                     border="2px solid"
                     borderColor="blackAlpha.200"

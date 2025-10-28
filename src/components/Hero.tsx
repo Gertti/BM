@@ -10,7 +10,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { useState, useEffect, useRef } from 'react';
-import logoImage from '../assets/logo.png';
+import logoImage from '../assets/logo1.webp';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -460,7 +460,7 @@ const Hero = () => {
             w="full"
             px={{ base: 2, sm: 0 }}
           >
-            Intelligent Automation for Modern Businesses
+            Marketing and Business Development <br /> Growth Partner
           </Heading>
 
           {/* Subcopy */}
@@ -476,15 +476,11 @@ const Hero = () => {
             display="block"
             whiteSpace={{ base: "normal", sm: "nowrap" }}
           >
-            We{' '}
+            We do the{' '}
             <Text as="span" fontWeight="bold">
-              design, connect, and automate
+              heavy lifting
             </Text>{' '}
-            your growth systems so your team can focus on{' '}
-            <Text as="span" fontWeight="bold">
-              what matters most
-            </Text>
-            .
+            so that you don’t have to.
           </Text>
 
           {/* CTAs */}
@@ -521,7 +517,7 @@ const Hero = () => {
                 transition="all 0.25s ease"
                 boxShadow="0 4px 14px rgba(232, 138, 92, 0.3)"
               >
-                Get Started
+                Partner with Us
               </Button>
               <Link
                 href="#whatwedo"
@@ -595,7 +591,7 @@ const Hero = () => {
                 transition="all 0.25s ease"
                 boxShadow="0 4px 14px rgba(232, 138, 92, 0.3)"
               >
-                Get Started
+                Partner with Us
               </Button>
               <Button
                 as={Link}
