@@ -108,7 +108,7 @@ const WhatWeDo = () => {
     <Box
       id="whatwedo"
       py={{ base: 16, md: 24 }}
-      bg="linear-gradient(180deg, #000000 0%, #111827 50%, #000000 100%)"
+      bg="linear-gradient(180deg, #000000 0%, #111827 50%, #0a0f1c 100%)"
       position="relative"
       overflow="hidden"
     >

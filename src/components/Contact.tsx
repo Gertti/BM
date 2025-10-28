@@ -109,7 +109,7 @@ const Contact = () => {
       id="contact"
       py={[5.6, 8.4]}
       minH="500px"
-      bg="linear-gradient(135deg, #0a0f1c 0%, #000000 50%, #0d1421 100%)"
+      bg="linear-gradient(180deg, #0a0f1c 0%, #0d1421 30%, #000000 100%)"
       position="relative"
       overflow="hidden"
       display="flex"

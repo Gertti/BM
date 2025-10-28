@@ -11,7 +11,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Box id="contact" py={[12, 16]} bg="black" borderTop="1px solid" borderColor="whiteAlpha.200" position="relative" overflow="hidden">
+    <Box 
+      py={[12, 16]} 
+      bg="linear-gradient(180deg, #000000 0%, #0a0a0a 100%)" 
+      position="relative" 
+      overflow="hidden"
+    >
       {/* Subtle blue background elements */}
       <Box
         position="absolute"
