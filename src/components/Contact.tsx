@@ -109,13 +109,13 @@ const Contact = () => {
       id="contact"
       py={[5.6, 8.4]}
       minH="500px"
-      bg="white"
+      bg="linear-gradient(135deg, #0a0f1c 0%, #000000 50%, #0d1421 100%)"
       position="relative"
       overflow="hidden"
       display="flex"
       alignItems="center"
     >
-      {/* Subtle blue background elements */}
+      {/* Enhanced background elements */}
       <Box
         position="absolute"
         top="0"
@@ -124,20 +124,46 @@ const Contact = () => {
         bottom="0"
         zIndex="0"
       >
-        {/* Floating blue particles - similar to logos section */}
-        {[...Array(8)].map((_, i) => (
+        {/* Floating blue particles */}
+        {[...Array(12)].map((_, i) => (
           <Box
             key={i}
             position="absolute"
-            width="3px"
-            height="3px"
+            width={`${2 + (i % 3)}px`}
+            height={`${2 + (i % 3)}px`}
             borderRadius="50%"
-            background="rgba(0, 191, 255, 0.25)"
-            top={`${15 + (i * 10)}%`}
-            left={`${8 + (i * 12)}%`}
+            background={`rgba(0, 191, 255, ${0.3 + (i % 3) * 0.1})`}
+            boxShadow="0 0 10px rgba(0, 191, 255, 0.3)"
+            top={`${10 + (i * 7)}%`}
+            left={`${5 + (i * 8)}%`}
             animation={`float${i % 3} ${4 + (i % 2)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.3}s` }}
           />
         ))}
+        
+        {/* Gradient orbs for depth */}
+        <Box
+          position="absolute"
+          width="300px"
+          height="300px"
+          borderRadius="50%"
+          background="radial-gradient(circle, rgba(0, 191, 255, 0.08) 0%, transparent 70%)"
+          top="20%"
+          right="10%"
+          filter="blur(50px)"
+          animation="pulse 6s ease-in-out infinite"
+        />
+        <Box
+          position="absolute"
+          width="250px"
+          height="250px"
+          borderRadius="50%"
+          background="radial-gradient(circle, rgba(232, 138, 92, 0.05) 0%, transparent 70%)"
+          bottom="15%"
+          left="5%"
+          filter="blur(40px)"
+          animation="pulse 8s ease-in-out infinite reverse"
+        />
       </Box>
 
       <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1" h="full">
@@ -148,14 +174,14 @@ const Contact = () => {
               as="h2"
               fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
               fontWeight="bold"
-              color="black"
+              color="white"
               letterSpacing="tight"
             >
               Get In Touch
             </Heading>
             <Text
               fontSize={{ base: 'lg', md: 'xl' }}
-              color="blackAlpha.700"
+              color="whiteAlpha.800"
               lineHeight="1.6"
             >
               Ready to automate your growth systems? Let's discuss how we can help your team focus on what matters most.
@@ -167,21 +193,23 @@ const Contact = () => {
             maxW="600px"
             w="full"
             mx="auto"
-            bg="white"
+            bg="rgba(255, 255, 255, 0.05)"
+            backdropFilter="blur(10px)"
             p={{ base: 6, md: 8 }}
             borderRadius="xl"
             border="2px solid"
-            borderColor="rgba(0, 191, 255, 0.1)"
+            borderColor="rgba(0, 191, 255, 0.2)"
             _hover={{
-              borderColor: 'rgba(0, 191, 255, 0.2)',
-              boxShadow: '0 10px 30px rgba(0, 191, 255, 0.1)',
+              borderColor: 'rgba(0, 191, 255, 0.4)',
+              boxShadow: '0 20px 40px rgba(0, 191, 255, 0.15)',
+              bg: 'rgba(255, 255, 255, 0.08)',
             }}
             transition="all 0.3s ease"
           >
               <VStack spacing={{ base: 4, md: 6 }} as="form" ref={formRef} onSubmit={handleSubmit}>
                 <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={4} w="full">
                   <FormControl isRequired>
-                    <FormLabel color="black" fontWeight="semibold">
+                    <FormLabel color="white" fontWeight="semibold">
                       First Name
                     </FormLabel>
                     <Input
@@ -189,20 +217,23 @@ const Contact = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       placeholder="John"
-                      bg="white"
+                      bg="rgba(255, 255, 255, 0.1)"
                       border="2px solid"
-                      borderColor="blackAlpha.200"
-                      _hover={{ borderColor: 'rgba(0, 191, 255, 0.3)' }}
+                      borderColor="rgba(255, 255, 255, 0.2)"
+                      color="white"
+                      _placeholder={{ color: 'whiteAlpha.600' }}
+                      _hover={{ borderColor: 'rgba(0, 191, 255, 0.4)' }}
                       _focus={{
                         borderColor: '#00BFFF',
                         boxShadow: '0 0 0 1px #00BFFF',
+                        bg: 'rgba(255, 255, 255, 0.15)',
                       }}
                       size="lg"
                     />
                   </FormControl>
 
                   <FormControl isRequired>
-                    <FormLabel color="black" fontWeight="semibold">
+                    <FormLabel color="white" fontWeight="semibold">
                       Last Name
                     </FormLabel>
                     <Input
@@ -210,13 +241,16 @@ const Contact = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       placeholder="Doe"
-                      bg="white"
+                      bg="rgba(255, 255, 255, 0.1)"
                       border="2px solid"
-                      borderColor="blackAlpha.200"
-                      _hover={{ borderColor: 'rgba(0, 191, 255, 0.3)' }}
+                      borderColor="rgba(255, 255, 255, 0.2)"
+                      color="white"
+                      _placeholder={{ color: 'whiteAlpha.600' }}
+                      _hover={{ borderColor: 'rgba(0, 191, 255, 0.4)' }}
                       _focus={{
                         borderColor: '#00BFFF',
                         boxShadow: '0 0 0 1px #00BFFF',
+                        bg: 'rgba(255, 255, 255, 0.15)',
                       }}
                       size="lg"
                     />
@@ -224,7 +258,7 @@ const Contact = () => {
                 </SimpleGrid>
 
                 <FormControl isRequired>
-                  <FormLabel color="black" fontWeight="semibold">
+                  <FormLabel color="white" fontWeight="semibold">
                     Email
                   </FormLabel>
                   <Input
@@ -233,20 +267,23 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="john@company.com"
-                    bg="white"
+                    bg="rgba(255, 255, 255, 0.1)"
                     border="2px solid"
-                    borderColor="blackAlpha.200"
-                    _hover={{ borderColor: 'rgba(0, 191, 255, 0.3)' }}
+                    borderColor="rgba(255, 255, 255, 0.2)"
+                    color="white"
+                    _placeholder={{ color: 'whiteAlpha.600' }}
+                    _hover={{ borderColor: 'rgba(0, 191, 255, 0.4)' }}
                     _focus={{
                       borderColor: '#00BFFF',
                       boxShadow: '0 0 0 1px #00BFFF',
+                      bg: 'rgba(255, 255, 255, 0.15)',
                     }}
                     size="lg"
                   />
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel color="black" fontWeight="semibold">
+                  <FormLabel color="white" fontWeight="semibold">
                     Company
                   </FormLabel>
                   <Input
@@ -254,20 +291,23 @@ const Contact = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     placeholder="Your Company"
-                    bg="white"
+                    bg="rgba(255, 255, 255, 0.1)"
                     border="2px solid"
-                    borderColor="blackAlpha.200"
-                    _hover={{ borderColor: 'rgba(0, 191, 255, 0.3)' }}
+                    borderColor="rgba(255, 255, 255, 0.2)"
+                    color="white"
+                    _placeholder={{ color: 'whiteAlpha.600' }}
+                    _hover={{ borderColor: 'rgba(0, 191, 255, 0.4)' }}
                     _focus={{
                       borderColor: '#00BFFF',
                       boxShadow: '0 0 0 1px #00BFFF',
+                      bg: 'rgba(255, 255, 255, 0.15)',
                     }}
                     size="lg"
                   />
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel color="black" fontWeight="semibold">
+                  <FormLabel color="white" fontWeight="semibold">
                     Message
                   </FormLabel>
                   <Textarea
@@ -275,13 +315,16 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Please write a short message explaining your need…"
-                    bg="white"
+                    bg="rgba(255, 255, 255, 0.1)"
                     border="2px solid"
-                    borderColor="blackAlpha.200"
-                    _hover={{ borderColor: 'rgba(0, 191, 255, 0.3)' }}
+                    borderColor="rgba(255, 255, 255, 0.2)"
+                    color="white"
+                    _placeholder={{ color: 'whiteAlpha.600' }}
+                    _hover={{ borderColor: 'rgba(0, 191, 255, 0.4)' }}
                     _focus={{
                       borderColor: '#00BFFF',
                       boxShadow: '0 0 0 1px #00BFFF',
+                      bg: 'rgba(255, 255, 255, 0.15)',
                     }}
                     size="lg"
                     rows={6}

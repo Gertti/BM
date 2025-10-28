@@ -67,8 +67,73 @@ const Logos = () => {
   }, []);
 
   return (
-    <Box bg="white" pt={{ base: 4, md: 6 }} pb={{ base: 0, md: 0 }}>
-      <Container maxW="1400px" px={[6, 4, 6]}>
+    <Box
+      bg="linear-gradient(180deg, #000000 0%, #0a0f1c 50%, #000000 100%)"
+      pt={{ base: 4, md: 6 }}
+      pb={{ base: 0, md: 0 }}
+      position="relative"
+      overflow="hidden"
+    >
+      {/* Subtle Background Elements */}
+      <Box
+        position="absolute"
+        top="0"
+        left="0"
+        right="0"
+        bottom="0"
+        zIndex="0"
+      >
+        {/* Floating blue particles */}
+        {[...Array(6)].map((_, i) => (
+          <Box
+            key={i}
+            position="absolute"
+            width="2px"
+            height="2px"
+            borderRadius="50%"
+            background="rgba(0, 191, 255, 0.4)"
+            top={`${20 + (i * 15)}%`}
+            left={`${10 + (i * 15)}%`}
+            animation={`float${i % 3} ${3 + (i % 2)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.5}s` }}
+          />
+        ))}
+        
+        {/* Subtle gradient orbs */}
+        <Box
+          position="absolute"
+          width="200px"
+          height="200px"
+          borderRadius="50%"
+          background="radial-gradient(circle, rgba(0, 191, 255, 0.05) 0%, transparent 70%)"
+          top="20%"
+          left="80%"
+          filter="blur(40px)"
+        />
+        <Box
+          position="absolute"
+          width="150px"
+          height="150px"
+          borderRadius="50%"
+          background="radial-gradient(circle, rgba(232, 138, 92, 0.03) 0%, transparent 70%)"
+          bottom="30%"
+          left="15%"
+          filter="blur(30px)"
+        />
+      </Box>
+
+      {/* White fade overlay for entire section */}
+      <Box
+        position="absolute"
+        top="0"
+        left="0"
+        right="0"
+        bottom="0"
+        bg="rgba(255, 255, 255, 0.8)"
+        zIndex="1"
+      />
+
+      <Container maxW="1400px" px={[6, 4, 6]} position="relative" zIndex="2">
         <VStack spacing={{ base: 0, md: -4 }}>
           {/* Title */}
           <Heading
