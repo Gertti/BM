@@ -10,9 +10,105 @@ import {
   Textarea,
   Button,
   SimpleGrid,
+  useToast,
 } from '@chakra-ui/react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
+  const toast = useToast();
+
+  // EmailJS Configuration
+  const EMAILJS_SERVICE_ID = 'service_5wav7gx';
+  const EMAILJS_NOTIFICATION_TEMPLATE = 'template_v2jjpjn'; // Notification to Ben
+  const EMAILJS_CONFIRMATION_TEMPLATE = 'template_srzb4a7'; // Confirmation to user
+  const EMAILJS_PUBLIC_KEY = 'niop94u-AJGEwInUO';
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus('idle');
+
+    try {
+
+      // Prepare template parameters for both emails
+      const templateParams = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+        name: `${formData.firstName} ${formData.lastName}`, // For confirmation email
+      };
+
+      // Send notification email to Ben
+      const notificationResult = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_NOTIFICATION_TEMPLATE,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      // Send confirmation email to user
+      const confirmationResult = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_CONFIRMATION_TEMPLATE,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      if (notificationResult.status === 200 && confirmationResult.status === 200) {
+        setSubmitStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          company: '',
+          message: ''
+        });
+        
+        toast({
+          title: 'Message sent successfully!',
+          description: 'Thank you for your message. We\'ll get back to you soon. Check your email for confirmation.',
+          status: 'success',
+          duration: 6000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setSubmitStatus('error');
+      
+      toast({
+        title: 'Failed to send message',
+        description: 'Please try again later or contact us directly.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <Box
       id="contact"
@@ -87,13 +183,16 @@ const Contact = () => {
             }}
             transition="all 0.3s ease"
           >
-              <VStack spacing={{ base: 4, md: 6 }} as="form">
+              <VStack spacing={{ base: 4, md: 6 }} as="form" ref={formRef} onSubmit={handleSubmit}>
                 <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={4} w="full">
-                  <FormControl>
+                  <FormControl isRequired>
                     <FormLabel color="black" fontWeight="semibold">
                       First Name
                     </FormLabel>
                     <Input
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                       placeholder="John"
                       bg="white"
                       border="2px solid"
@@ -107,11 +206,14 @@ const Contact = () => {
                     />
                   </FormControl>
 
-                  <FormControl>
+                  <FormControl isRequired>
                     <FormLabel color="black" fontWeight="semibold">
                       Last Name
                     </FormLabel>
                     <Input
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
                       placeholder="Doe"
                       bg="white"
                       border="2px solid"
@@ -126,12 +228,15 @@ const Contact = () => {
                   </FormControl>
                 </SimpleGrid>
 
-                <FormControl>
+                <FormControl isRequired>
                   <FormLabel color="black" fontWeight="semibold">
                     Email
                   </FormLabel>
                   <Input
+                    name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="john@company.com"
                     bg="white"
                     border="2px solid"
@@ -150,6 +255,9 @@ const Contact = () => {
                     Company
                   </FormLabel>
                   <Input
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
                     placeholder="Your Company"
                     bg="white"
                     border="2px solid"
@@ -163,11 +271,14 @@ const Contact = () => {
                   />
                 </FormControl>
 
-                <FormControl>
+                <FormControl isRequired>
                   <FormLabel color="black" fontWeight="semibold">
                     Message
                   </FormLabel>
                   <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Please write a short message explaining your need…"
                     bg="white"
                     border="2px solid"
@@ -184,12 +295,15 @@ const Contact = () => {
                 </FormControl>
 
                 <Button
+                  type="submit"
+                  isLoading={isLoading}
+                  loadingText="Sending..."
                   bg="#D77A45 !important"
                   color="white !important"
                   _hover={{
-                    bg: '#C96A35 !important',
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 8px 20px rgba(215, 122, 69, 0.4)'
+                    bg: isLoading ? '#D77A45 !important' : '#C96A35 !important',
+                    transform: isLoading ? 'none' : 'translateY(-2px)',
+                    boxShadow: isLoading ? '0 4px 14px rgba(215, 122, 69, 0.3)' : '0 8px 20px rgba(215, 122, 69, 0.4)'
                   }}
                   _active={{
                     bg: '#B85A25 !important',
@@ -210,7 +324,7 @@ const Contact = () => {
                   sx={{
                     backgroundColor: '#D77A45 !important',
                     '&:hover': {
-                      backgroundColor: '#C96A35 !important'
+                      backgroundColor: isLoading ? '#D77A45 !important' : '#C96A35 !important'
                     },
                     '&:active': {
                       backgroundColor: '#B85A25 !important'
