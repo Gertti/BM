@@ -17,8 +17,36 @@ const Navbar = () => {
       borderColor="whiteAlpha.200"
       zIndex={1000}
       backdropFilter="blur(10px)"
+      overflow="hidden"
     >
-      <Container maxW="1200px" px={[4, 6, 8]}>
+      {/* Subtle floating particles for navbar */}
+      <Box
+        position="absolute"
+        top="0"
+        left="0"
+        right="0"
+        bottom="0"
+        zIndex="0"
+      >
+        {[...Array(12)].map((_, i) => (
+          <Box
+            key={i}
+            position="absolute"
+            width="2px"
+            height="2px"
+            borderRadius="50%"
+            background="rgba(0, 191, 255, 0.3)"
+            boxShadow="0 0 6px rgba(0, 191, 255, 0.2)"
+            top="50%"
+            left={`${15 + (i * 14)}%`}
+            animation={`float${i % 3} ${4 + (i % 2)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.8}s` }}
+            filter="brightness(1.1)"
+          />
+        ))}
+      </Box>
+
+      <Container maxW="1200px" px={[4, 6, 8]} position="relative" zIndex="1">
         <Flex h={{ base: "70px", md: "80px" }} align="center" justify="space-between">
           {/* Logo */}
           <Text

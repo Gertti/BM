@@ -124,20 +124,38 @@ const Contact = () => {
         bottom="0"
         zIndex="0"
       >
-        {/* Floating blue particles */}
-        {[...Array(12)].map((_, i) => (
+        {/* Enhanced floating blue particles */}
+        {[...Array(36)].map((_, i) => (
           <Box
             key={i}
             position="absolute"
             width={`${2 + (i % 3)}px`}
             height={`${2 + (i % 3)}px`}
             borderRadius="50%"
-            background={`rgba(0, 191, 255, ${0.3 + (i % 3) * 0.1})`}
-            boxShadow="0 0 10px rgba(0, 191, 255, 0.3)"
-            top={`${10 + (i * 7)}%`}
-            left={`${5 + (i * 8)}%`}
+            background={`rgba(0, 191, 255, ${0.4 + (i % 3) * 0.15})`}
+            boxShadow={`0 0 ${10 + (i % 4) * 2}px rgba(0, 191, 255, 0.4)`}
+            top={`${8 + (i * 5)}%`}
+            left={`${4 + (i * 5.5)}%`}
             animation={`float${i % 3} ${4 + (i % 2)}s ease-in-out infinite`}
-            sx={{ animationDelay: `${i * 0.3}s` }}
+            sx={{ animationDelay: `${i * 0.2}s` }}
+            filter="brightness(1.3)"
+          />
+        ))}
+        
+        {/* Right side particles */}
+        {[...Array(20)].map((_, i) => (
+          <Box
+            key={`right-${i}`}
+            position="absolute"
+            width={`${1.5 + (i % 2)}px`}
+            height={`${1.5 + (i % 2)}px`}
+            borderRadius="50%"
+            background="rgba(0, 191, 255, 0.7)"
+            boxShadow="0 0 8px rgba(0, 191, 255, 0.5)"
+            top={`${12 + (i * 8)}%`}
+            right={`${6 + (i * 9)}%`}
+            animation={`brightFloat${i % 4} ${3 + (i % 2)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.4}s` }}
           />
         ))}
         

@@ -27,7 +27,7 @@ const Footer = () => {
         zIndex="0"
       >
         {/* Floating blue particles - random distribution */}
-        {[...Array(20)].map((_, i) => {
+        {[...Array(40)].map((_, i) => {
           const randomTop = Math.floor(Math.random() * 80) + 10; // 10-90%
           const randomLeft = Math.floor(Math.random() * 85) + 5; // 5-90%
           const randomDelay = Math.random() * 2; // 0-2s delay

@@ -83,19 +83,38 @@ const Logos = () => {
         bottom="0"
         zIndex="0"
       >
-        {/* Floating blue particles */}
-        {[...Array(6)].map((_, i) => (
+        {/* Enhanced floating blue particles */}
+        {[...Array(24)].map((_, i) => (
           <Box
             key={i}
+            position="absolute"
+            width={`${2 + (i % 3)}px`}
+            height={`${2 + (i % 3)}px`}
+            borderRadius="50%"
+            background={`rgba(0, 191, 255, ${0.5 + (i % 3) * 0.1})`}
+            boxShadow={`0 0 ${6 + (i % 3) * 2}px rgba(0, 191, 255, 0.5)`}
+            top={`${15 + (i * 7)}%`}
+            left={`${8 + (i * 8)}%`}
+            animation={`float${i % 3} ${3 + (i % 2)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.3}s` }}
+            filter="brightness(1.1)"
+          />
+        ))}
+        
+        {/* Additional scattered particles */}
+        {[...Array(16)].map((_, i) => (
+          <Box
+            key={`extra-${i}`}
             position="absolute"
             width="2px"
             height="2px"
             borderRadius="50%"
-            background="rgba(0, 191, 255, 0.4)"
-            top={`${20 + (i * 15)}%`}
-            left={`${10 + (i * 15)}%`}
-            animation={`float${i % 3} ${3 + (i % 2)}s ease-in-out infinite`}
-            sx={{ animationDelay: `${i * 0.5}s` }}
+            background="rgba(0, 191, 255, 0.8)"
+            boxShadow="0 0 8px rgba(0, 191, 255, 0.6)"
+            top={`${25 + (i * 9)}%`}
+            right={`${10 + (i * 11)}%`}
+            animation={`brightFloat${i % 4} ${2 + (i % 3)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.4}s` }}
           />
         ))}
         
@@ -129,7 +148,7 @@ const Logos = () => {
         left="0"
         right="0"
         bottom="0"
-        bg="rgba(255, 255, 255, 0.8)"
+        bg="rgba(255, 255, 255, 0.65)"
         zIndex="1"
       />
 

@@ -121,6 +121,41 @@ const WhatWeDo = () => {
         bottom="0"
         zIndex="0"
       >
+        {/* Enhanced floating blue particles */}
+        {[...Array(30)].map((_, i) => (
+          <Box
+            key={i}
+            position="absolute"
+            width={`${2 + (i % 4)}px`}
+            height={`${2 + (i % 4)}px`}
+            borderRadius="50%"
+            background={`rgba(0, 191, 255, ${0.4 + (i % 4) * 0.1})`}
+            boxShadow={`0 0 ${8 + (i % 3) * 2}px rgba(0, 191, 255, 0.4)`}
+            top={`${8 + (i * 6)}%`}
+            left={`${5 + (i * 6.5)}%`}
+            animation={`float${i % 3} ${3 + (i % 3)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.4}s` }}
+            filter="brightness(1.2)"
+          />
+        ))}
+        
+        {/* Scattered bright particles */}
+        {[...Array(20)].map((_, i) => (
+          <Box
+            key={`bright-${i}`}
+            position="absolute"
+            width="3px"
+            height="3px"
+            borderRadius="50%"
+            background="rgba(0, 191, 255, 0.9)"
+            boxShadow="0 0 12px rgba(0, 191, 255, 0.7)"
+            top={`${15 + (i * 8)}%`}
+            right={`${8 + (i * 9)}%`}
+            animation={`brightFloat${i % 4} ${2.5 + (i % 3)}s ease-in-out infinite`}
+            sx={{ animationDelay: `${i * 0.3}s` }}
+          />
+        ))}
+
         {/* Subtle blue gradient */}
         <Box
           position="absolute"
