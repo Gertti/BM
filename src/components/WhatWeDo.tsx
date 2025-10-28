@@ -186,8 +186,31 @@ const WhatWeDo = () => {
           </VStack>
 
           {/* Services Section */}
-          <Box w="full" maxW="1000px" mx="auto">
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+          <VStack spacing={8} w="full" maxW="1000px" mx="auto">
+            <VStack spacing={3} textAlign="center">
+              <Heading
+                as="h3"
+                fontSize={{ base: '2xl', md: '3xl' }}
+                fontWeight="bold"
+                color="white"
+                textAlign="center"
+              >
+                Our{' '}
+                <Text as="span" color="#00BFFF">
+                  Services
+                </Text>
+              </Heading>
+              <Text
+                fontSize="lg"
+                color="whiteAlpha.700"
+                textAlign="center"
+                maxW="600px"
+              >
+                Comprehensive solutions for advertisers and publishers
+              </Text>
+            </VStack>
+            
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full">
               
               {/* Advertisers */}
               <Box
@@ -291,19 +314,32 @@ const WhatWeDo = () => {
                 </VStack>
               </Box>
             </SimpleGrid>
-          </Box>
+          </VStack>
 
-          {/* Quote */}
-          <Box
-            bg="rgba(0, 191, 255, 0.05)"
-            borderRadius="2xl"
-            border="1px solid"
-            borderColor="rgba(0, 191, 255, 0.2)"
-            p={{ base: 6, md: 8 }}
-            maxW="700px"
-            textAlign="center"
-            mx="auto"
-          >
+          {/* Quote Section */}
+          <VStack spacing={4} textAlign="center" maxW="800px" mx="auto">
+            <Heading
+              as="h3"
+              fontSize={{ base: '2xl', md: '3xl' }}
+              fontWeight="bold"
+              color="white"
+              textAlign="center"
+            >
+              Client{' '}
+              <Text as="span" color="#00BFFF">
+                Testimonial
+              </Text>
+            </Heading>
+            
+            <Box
+              bg="rgba(0, 191, 255, 0.05)"
+              borderRadius="2xl"
+              border="1px solid"
+              borderColor="rgba(0, 191, 255, 0.2)"
+              p={{ base: 6, md: 8 }}
+              textAlign="center"
+              mx="auto"
+            >
             <VStack spacing={4}>
               <Icon as={FaQuoteLeft} boxSize={8} color="#00BFFF" opacity={0.5} />
               <Text
@@ -322,7 +358,8 @@ const WhatWeDo = () => {
                 - Industry Partner
               </Text>
             </VStack>
-          </Box>
+            </Box>
+          </VStack>
 
           {/* Verticals */}
           <VStack spacing={10} w="full" maxW="1000px" mx="auto">
@@ -473,22 +510,29 @@ const WhatWeDo = () => {
             </SimpleGrid>
           </VStack>
 
-          {/* CTA */}
-          <VStack spacing={6} textAlign="center" pt={8}>
-            <VStack spacing={2}>
+          {/* CTA Section */}
+          <VStack spacing={8} textAlign="center" pt={12} maxW="600px" mx="auto">
+            <VStack spacing={4}>
               <Heading
                 as="h3"
-                fontSize={{ base: 'xl', md: '2xl' }}
+                fontSize={{ base: '2xl', md: '3xl' }}
                 fontWeight="bold"
                 color="white"
+                textAlign="center"
               >
-                Ready to Scale Your Business?
+                Ready to Scale Your{' '}
+                <Text as="span" color="#00BFFF">
+                  Business?
+                </Text>
               </Heading>
               <Text
-                fontSize="md"
+                fontSize={{ base: 'md', md: 'lg' }}
                 color="whiteAlpha.700"
+                textAlign="center"
+                maxW="500px"
+                lineHeight="1.6"
               >
-                Join the elite network of brands scaling through strategic partnerships.
+                Join the elite network of brands scaling through strategic partnerships and unlock your growth potential.
               </Text>
             </VStack>
             
