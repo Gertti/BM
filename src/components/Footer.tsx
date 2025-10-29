@@ -77,12 +77,12 @@ const Footer = () => {
             direction={{ base: 'column', md: 'row' }}
             gap={{ base: 4, md: 0 }}
           >
-            <Text fontSize="sm" color="whiteAlpha.600">
+            <Text fontSize="sm" color="white">
               © {currentYear} - All rights reserved.
             </Text>
 
             <HStack spacing={6} display={{ base: 'none', md: 'flex' }}>
-              <Text fontSize="sm" color="whiteAlpha.600">
+              <Text fontSize="sm" color="white">
                 hello@herocomplex.com
               </Text>
             </HStack>
