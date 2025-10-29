@@ -1,7 +1,6 @@
 import {
   Box,
   Container,
-  HStack,
   Heading,
   Image,
   VStack,
@@ -40,20 +39,6 @@ const Logos = () => {
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    const handleMouseEnter = () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-
-    const handleMouseLeave = () => {
-      startTime = undefined;
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    slider.addEventListener('mouseenter', handleMouseEnter);
-    slider.addEventListener('mouseleave', handleMouseLeave);
-
     // Start animation
     animationRef.current = requestAnimationFrame(animate);
 
@@ -61,97 +46,17 @@ const Logos = () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-      slider.removeEventListener('mouseenter', handleMouseEnter);
-      slider.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
   return (
     <Box
-      bg="linear-gradient(180deg, #000000 0%, #0a0f1c 50%, #000000 100%)"
+      bg="white"
       pt={{ base: 4, md: 6 }}
       pb={{ base: 0, md: 0 }}
       position="relative"
       overflow="hidden"
     >
-      {/* Subtle Background Elements */}
-      <Box
-        position="absolute"
-        top="0"
-        left="0"
-        right="0"
-        bottom="0"
-        zIndex="0"
-      >
-        {/* Enhanced floating blue particles */}
-        {[...Array(24)].map((_, i) => (
-          <Box
-            key={i}
-            position="absolute"
-            width={`${2 + (i % 3)}px`}
-            height={`${2 + (i % 3)}px`}
-            borderRadius="50%"
-            background={`rgba(0, 191, 255, ${0.5 + (i % 3) * 0.1})`}
-            boxShadow={`0 0 ${6 + (i % 3) * 2}px rgba(0, 191, 255, 0.5)`}
-            top={`${15 + (i * 7)}%`}
-            left={`${8 + (i * 8)}%`}
-            animation={`float${i % 3} ${3 + (i % 2)}s ease-in-out infinite`}
-            sx={{ animationDelay: `${i * 0.3}s` }}
-            filter="brightness(1.1)"
-          />
-        ))}
-        
-        {/* Additional scattered particles */}
-        {[...Array(16)].map((_, i) => (
-          <Box
-            key={`extra-${i}`}
-            position="absolute"
-            width="2px"
-            height="2px"
-            borderRadius="50%"
-            background="rgba(0, 191, 255, 0.8)"
-            boxShadow="0 0 8px rgba(0, 191, 255, 0.6)"
-            top={`${25 + (i * 9)}%`}
-            right={`${10 + (i * 11)}%`}
-            animation={`brightFloat${i % 4} ${2 + (i % 3)}s ease-in-out infinite`}
-            sx={{ animationDelay: `${i * 0.4}s` }}
-          />
-        ))}
-        
-        {/* Subtle gradient orbs */}
-        <Box
-          position="absolute"
-          width="200px"
-          height="200px"
-          borderRadius="50%"
-          background="radial-gradient(circle, rgba(0, 191, 255, 0.05) 0%, transparent 70%)"
-          top="20%"
-          left="80%"
-          filter="blur(40px)"
-        />
-        <Box
-          position="absolute"
-          width="150px"
-          height="150px"
-          borderRadius="50%"
-          background="radial-gradient(circle, rgba(232, 138, 92, 0.03) 0%, transparent 70%)"
-          bottom="30%"
-          left="15%"
-          filter="blur(30px)"
-        />
-      </Box>
-
-      {/* White fade overlay for entire section */}
-      <Box
-        position="absolute"
-        top="0"
-        left="0"
-        right="0"
-        bottom="0"
-        bg="rgba(255, 255, 255, 0.65)"
-        zIndex="1"
-      />
-
       <Container maxW="1400px" px={[6, 4, 6]} position="relative" zIndex="2">
         <VStack spacing={{ base: 0, md: -4 }}>
           {/* Title */}
@@ -168,48 +73,11 @@ const Logos = () => {
             Our Trusted Partners:
           </Heading>
 
-          {/* Desktop: Horizontal Row */}
-          <Box display={{ base: "none", md: "block" }} w="full" mt={{ base: 0, md: -6 }}>
-            <HStack
-              spacing={{ base: 12, md: 16, lg: 20 }}
-              justify="center"
-              align="center"
-              flexWrap="nowrap"
-              w="full"
-            >
-              {logos.map((logo, index) => (
-                <Box
-                  key={index}
-                  flex="1"
-                  maxW={{ base: "220px", md: "260px", lg: "300px" }}
-                  h={{ base: "110px", md: "130px", lg: "150px" }}
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  <Image
-                    src={logo}
-                    alt={`Logo ${index + 1}`}
-                    h="full"
-                    w="auto"
-                    maxW="full"
-                    objectFit="contain"
-                    opacity={0.9}
-                    _hover={{ opacity: 1 }}
-                    transition="all 0.3s ease"
-                    transform="scale(1.2)"
-                  />
-                </Box>
-              ))}
-            </HStack>
-          </Box>
-
-          {/* Mobile: Auto-scrolling Slider */}
+          {/* Auto-scrolling Slider for all screen sizes */}
           <Box
-            display={{ base: "block", md: "none" }}
             w="full"
             overflow="hidden"
-            mt={{ base: "-1rem", md: 0 }}
+            mt={{ base: "-1rem", md: "-1rem" }}
             pt={{ base: 0, md: 0 }}
           >
             <Box
@@ -217,7 +85,6 @@ const Logos = () => {
               display="flex"
               w="max-content"
               sx={{
-                cursor: 'grab',
                 '&::-webkit-scrollbar': {
                   display: 'none',
                 },
@@ -229,12 +96,12 @@ const Logos = () => {
                 <Box
                   key={`first-${index}`}
                   flex="0 0 auto"
-                  w="100px"
-                  h="70px"
+                  w={{ base: "100px", md: "180px", lg: "220px" }}
+                  h={{ base: "70px", md: "120px", lg: "140px" }}
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  mx="15px"
+                  mx={{ base: "15px", md: "30px", lg: "40px" }}
                 >
                   <Image
                     src={logo}
@@ -254,12 +121,12 @@ const Logos = () => {
                 <Box
                   key={`second-${index}`}
                   flex="0 0 auto"
-                  w="100px"
-                  h="70px"
+                  w={{ base: "100px", md: "180px", lg: "220px" }}
+                  h={{ base: "70px", md: "120px", lg: "140px" }}
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  mx="15px"
+                  mx={{ base: "15px", md: "30px", lg: "40px" }}
                 >
                   <Image
                     src={logo}
