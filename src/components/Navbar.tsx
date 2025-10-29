@@ -13,8 +13,6 @@ const Navbar = () => {
       position="sticky"
       top={0}
       bg="black"
-      borderBottom="1px solid"
-      borderColor="whiteAlpha.200"
       zIndex={1000}
       backdropFilter="blur(10px)"
       overflow="hidden"
